@@ -1,4 +1,6 @@
 import Head from "next/head";
+import { Login } from "../components/login";
+import { Navbar } from "../components/Navbar";
 import style from "./title.module.css";
 
 export default function Home() {
@@ -11,9 +13,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className={style.tit}>Master</h1>
-        <h1 className={style.tit}>hello</h1>
-        <h1 className={style.tit}>World</h1>
+        <Navbar />
+        <Login />
       </main>
     </>
   );
