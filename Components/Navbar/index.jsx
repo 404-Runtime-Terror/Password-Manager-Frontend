@@ -3,6 +3,6 @@ import style from "./style.module.css"
 
 export const Navbar = () => {
   return (
-    <div>index</div>
+    <div></div>
   )
 }
