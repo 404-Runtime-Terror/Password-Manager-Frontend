@@ -1,9 +1,12 @@
 import Head from "next/head";
+import { useState } from "react";
 import { Login } from "../components/login";
 import { Navbar } from "../components/Navbar";
-import style from "./title.module.css";
+import Signup from "../Components/SignUp";
 
 export default function Home() {
+  const [isLoginPage, setisLoginPage] = useState(true);
+
   return (
     <>
       <Head>
@@ -14,7 +17,13 @@ export default function Home() {
       </Head>
       <main>
         <Navbar />
-        <Login />
+
+        {/* if else statement: if isLoginPage is true then show login component else show signup component */}
+        {isLoginPage ? (
+          <Login setisLoginPage={setisLoginPage} />
+        ) : (
+          <Signup setisLoginPage={setisLoginPage} />
+        )}
       </main>
     </>
   );
