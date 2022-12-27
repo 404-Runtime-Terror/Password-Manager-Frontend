@@ -1,0 +1,15 @@
+/* to center the signup box */
+.signup_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--textcolor);
+}
+
+/* to center the signup form */
+.form_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
