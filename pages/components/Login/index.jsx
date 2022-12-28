@@ -32,7 +32,7 @@ const Login = (props) => {
             />
 
             {/* forgot password link */}
-            <a href="#" classId="redirect">Forgot Password</a>
+              <a href="#" className={style.redirect}>Forgot Password</a>
 
             {/* button  box*/}
             <div className={style.button_box}>
