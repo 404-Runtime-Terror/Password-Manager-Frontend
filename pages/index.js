@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
-import { Login } from "../components/login";
-import { Navbar } from "../components/Navbar";
+import Login from "../components/login";
+import Navbar from "../components/Navbar";
 import Signup from "../Components/SignUp";
 
 export default function Home() {
