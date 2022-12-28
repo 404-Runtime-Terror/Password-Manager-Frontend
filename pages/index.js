@@ -3,7 +3,7 @@ import { useState } from "react";
 // import Login from "../components/Login";
 // import Navbar from "../components/Navbar";
 // import Signup from "../components/SignUp";
-import Temp from "../components/Temp";
+import Temp from "./components/Temp";
 
 export default function Home() {
   const [isLoginPage, setisLoginPage] = useState(true);
