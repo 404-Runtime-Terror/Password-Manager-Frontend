@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./style.module.css";
 
-export const Login = (props) => {
+const Login = (props) => {
   return (
     <>
       <div className={style.login_background}>
@@ -55,3 +55,5 @@ export const Login = (props) => {
     </>
   );
 };
+
+export default Login;

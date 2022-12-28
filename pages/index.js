@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { useState } from "react";
-import { Login } from "../components/login";
-import { Navbar } from "../components/Navbar";
-import Signup from "../Components/SignUp";
+import Login from "./components/Login";
+import Navbar from "./components/Navbar";
+import Signup from "./components/SignUp";
 
 export default function Home() {
   const [isLoginPage, setisLoginPage] = useState(true);
@@ -17,7 +17,6 @@ export default function Home() {
       </Head>
       <main>
         <Navbar />
-
         {/* if else statement: if isLoginPage is true then show login component else show signup component */}
         {isLoginPage ? (
           <Login setisLoginPage={setisLoginPage} />
