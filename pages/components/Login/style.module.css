@@ -37,6 +37,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+
 }
 
 .login_head{
@@ -50,6 +51,7 @@
   padding: 10px;
   height: auto;
   width: 20vw;
+  border:0;
   border-radius: var(--border-radius);
 }
 .redirect{
