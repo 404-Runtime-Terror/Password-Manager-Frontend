@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./style.module.css";
 
-export const Login = (props) => {
+const Login = (props) => {
   return (
     <>
       {/* main wrapper of login box */}
@@ -51,3 +51,5 @@ export const Login = (props) => {
     </>
   );
 };
+
+export default Login;

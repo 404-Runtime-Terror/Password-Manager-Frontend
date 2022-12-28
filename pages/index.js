@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import Login from "../components/Login";
 import Navbar from "../components/Navbar";
-import Signup from "../components/Signup";
+import Signup from "../components/SignUp";
 
 export default function Home() {
   const [isLoginPage, setisLoginPage] = useState(true);
