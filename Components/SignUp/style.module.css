@@ -1,21 +1,15 @@
-.login_box {
+/* to center the signup box */
+.signup_box {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  /* created variable for text color in globals.css */
   color: var(--textcolor);
 }
 
-.login_form {
+/* to center the signup form */
+.form_box {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.button_box {
-  display: flex;
   align-items: center;
   width: 100%;
 }
