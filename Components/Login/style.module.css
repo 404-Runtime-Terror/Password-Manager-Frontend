@@ -1,10 +1,32 @@
+.login_background{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+  height: 50vw;
+  width: auto;
+  background-size: 100%;
+  /* background-attachment: url('bl.gif');
+  animation-name: trial;
+  animation-duration: 100s;
+  animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+  animation-iteration-count: infinite; */
+}
+
 .login_box {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  justify-content: space-evenly;
+  height: 85vh;
+  width: 30vw;
+  background-color: rgb(64, 160, 149);
+  box-shadow: 20px;
   /* created variable for text color in globals.css */
   color: var(--textcolor);
+  border-radius: var(--border-radius);
+  
 }
 
 .login_form {
@@ -14,8 +36,38 @@
   width: 100%;
 }
 
+.login_head{
+  color: var(--primary-color);
+}
+
+.login_input{
+  margin: 20px;
+  margin-bottom: 40px;
+  padding: 10px;
+  height: auto;
+  width: 20vw;
+  border-radius: var(--border-radius);
+}
+
+#redirect{
+  text-decoration: none;
+  color: #000;
+}
+
+
 .button_box {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
   width: 100%;
+}
+
+.login_btn{
+  background-color: var(--primary-color);
+  border: double;
+  border-color: var(--primary-color);
+  padding: 10px 10px;
+  font-size: var(--font-size);
+  border-radius: var(--border-radius);
 }

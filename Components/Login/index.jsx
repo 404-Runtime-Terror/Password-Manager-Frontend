@@ -4,6 +4,9 @@ import style from "./style.module.css";
 export const Login = (props) => {
   return (
     <>
+      <div className={style.login_background}>
+      {/* <iframe width="900" height="900" src="https://media.tenor.com/Pt3WqGJBXLUAAAAC/blackhole-space.gif" title="blackhole" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+
       {/* main wrapper of login box */}
       <div className={style.login_box}>
         {/* login box header */}
@@ -29,7 +32,7 @@ export const Login = (props) => {
             />
 
             {/* forgot password link */}
-            <a href="#">Forgot Password</a>
+            <a href="#" classId="redirect">Forgot Password</a>
 
             {/* button  box*/}
             <div className={style.button_box}>
@@ -47,6 +50,7 @@ export const Login = (props) => {
             </div>
           </form>
         </div>
+      </div>
       </div>
     </>
   );
