@@ -1,8 +1,9 @@
 import Head from "next/head";
 import { useState } from "react";
 // import Login from "../components/Login";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 // import Signup from "../components/SignUp";
+import Temp from "../components/Temp";
 
 export default function Home() {
   const [isLoginPage, setisLoginPage] = useState(true);
@@ -16,7 +17,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Navbar />
+        <Temp />
+        {/* <Navbar /> */}
 
         {/* if else statement: if isLoginPage is true then show login component else show signup component */}
         {/* {isLoginPage ? (
