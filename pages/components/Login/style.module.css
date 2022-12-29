@@ -4,7 +4,7 @@
   justify-content: center;
   position: relative;
   margin: auto;
-  height: 50vw;
+  height: 100vh;
   width: auto;
   background-size: auto;
   /* background-image: url(https://media.giphy.com/media/3og0IFrHkIglEOg8Ba/giphy.gif); */
@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: space-evenly;
   height: 85vh;
-  width: min(500px,30vw);
+  width: 500px;
   background-color: rgb(255, 255, 255, 0.4);
   box-shadow: 20px;
   /* created variable for text color in globals.css */
@@ -101,4 +101,14 @@
 
 .login_btn {
   width: 120px;
+}
+
+@media(max-width:900px){
+  .login_box{
+    display: block;
+  }
+
+  .login_background{
+    width: 100%;
+  }
 }
