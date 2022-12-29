@@ -23,7 +23,7 @@ const Login = (props) => {
             {/* username input  */}
             <form className={style.login_form}>
               <div className={style.login_input_box}>
-                <FaUserAlt className={style.login_input_icon} />
+                <FaUserAlt className={style.login_input_icon}size={"23px"} />
                 <input
                   type="text"
                   placeholder="username"
@@ -33,7 +33,7 @@ const Login = (props) => {
 
               {/* password input  */}
               <div className={style.login_input_box}>
-                <IoMdLock className={style.login_input_icon} />
+                <IoMdLock className={style.login_input_icon}size={"32px"}  />
                 <input
                   type="password"
                   placeholder="password"

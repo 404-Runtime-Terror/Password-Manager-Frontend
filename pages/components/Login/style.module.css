@@ -7,7 +7,7 @@
   height: 50vw;
   width: auto;
   background-size: auto;
-  background-image: url(https://media.giphy.com/media/3og0IFrHkIglEOg8Ba/giphy.gif);
+  /* background-image: url(https://media.giphy.com/media/3og0IFrHkIglEOg8Ba/giphy.gif); */
 
   /* background-attachment: url('bl.gif');
   animation-name: trial;
@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: space-evenly;
   height: 85vh;
-  width: 30vw;
+  width: min(500px,30vw);;
   background-color: rgb(255, 255, 255, 0.4);
   box-shadow: 20px;
   /* created variable for text color in globals.css */
@@ -40,6 +40,7 @@
 
 .login_head {
   color: var(--primary-color);
+  text-transform: uppercase;
 }
 
 .login_input_box {
@@ -56,6 +57,13 @@
   border-radius: 5px;
   font-weight: 500;
   padding-left: 50px;
+}
+
+.login_input_icon{
+  color: var(--primary-color);
+  position: relative;
+  left: 38px;
+  margin-bottom: -6px;
 }
 
 .login_input:focus-visible {
