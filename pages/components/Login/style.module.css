@@ -86,6 +86,7 @@
   text-decoration: none;
   color: white;
   margin-right: 3px;
+  white-space: nowrap;
 }
 .redirect:hover {
   text-decoration: underline;
@@ -104,17 +105,13 @@
   width: 120px;
 }
 
-/* @media(min-width:550px){
-  .login_box{
-    /* display: block; */
-  }
-
-  .login_background{
-    width: 100%;
+@media(max-width:380px){
+  .login_input{
+    width: 200px;
   }
 
   .redirect{
-  /* width: 200px; */
-  
+    width: 200px;
+    font-size: 0.8rem;
   }
-} */
+}
