@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: space-evenly;
   height: 85vh;
-  width: min(500px,30vw);;
+  width: min(500px,30vw);
   background-color: rgb(255, 255, 255, 0.4);
   box-shadow: 20px;
   /* created variable for text color in globals.css */
