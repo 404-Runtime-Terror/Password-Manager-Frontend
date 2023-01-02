@@ -6,9 +6,8 @@
   margin: auto;
   height: 100vh;
   width: auto;
-  background-size: auto;
-  background-image: url(https://media.giphy.com/media/3og0IFrHkIglEOg8Ba/giphy.gif);
-  animation-name: trial;
+  background-size: cover;
+  background-image: url(/blackhole.gif);
   animation-duration: 100s;
   animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
   animation-iteration-count: infinite;
