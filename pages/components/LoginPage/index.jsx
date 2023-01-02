@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import style from "./style.module.css";
-import Login from "../Login";
-import Signup from "../Signup";
+import Login from "../Login/index";
+import Signup from "../SignUp/index";
 
 const LoginPage = () => {
   const [isLoginPage, setisLoginPage] = useState(true);
