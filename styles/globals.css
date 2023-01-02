@@ -12,7 +12,10 @@ body {
   font-family: var(--primary-font);
 }
 :root {
-  --primary-color: #8f00ff;
+  --primary-color: #9000ff;
+  --primary-color-lighter: hsl(274, 100%, 60%);
+  --primary-color-darker: hsl(274, 100%, 40%);
+
   --border-radius: 10px;
   --textcolor: #fff;
   --btn-font-size: 16px;
@@ -30,4 +33,16 @@ body {
   border-radius: var(--border-radius);
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-lighter);
+  border-color: var(--primary-color-lighter);
+  transition: 0.3s ease-in-out;
+}
+
+.btn:active {
+  background-color: var(--primary-color-darker);
+  border-color: var(--primary-color-darker);
+  outline: none;
 }
