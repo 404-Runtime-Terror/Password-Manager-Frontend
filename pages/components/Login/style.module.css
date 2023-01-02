@@ -40,7 +40,8 @@
 
 .login_head {
   color: var(--primary-color);
-  text-transform: uppercase;
+  text-transform: capitalize;
+  font-size: 2rem;
 }
 
 .login_input_box {
@@ -59,8 +60,11 @@
   padding-left: 50px;
   /* min-width: 200px; */
 }
+.login_input_box:nth-child(2) {
+  margin-left: 8px;
+}
 
-.login_input_icon{
+.login_input_icon {
   color: var(--primary-color);
   position: relative;
   left: 38px;
@@ -81,12 +85,11 @@
 }
 
 .redirect {
-  width: 20vw;
+  width: 300px;
   text-align: right;
   text-decoration: none;
   color: white;
   margin-right: 3px;
-  white-space: nowrap;
 }
 .redirect:hover {
   text-decoration: underline;
@@ -105,12 +108,25 @@
   width: 120px;
 }
 
-@media(max-width:380px){
-  .login_input{
-    width: 200px;
+@media (min-width: 550px) {
+  .login_box {
+    /* display: block; */
   }
 
-  .redirect{
+  .login_background {
+    width: 100%;
+  }
+
+  .redirect {
+    /* width: 200px; */
+  }
+}
+
+@media (max-width: 380px) {
+  .login_input {
+    width: 200px;
+  }
+  .redirect {
     width: 200px;
     font-size: 0.8rem;
   }
