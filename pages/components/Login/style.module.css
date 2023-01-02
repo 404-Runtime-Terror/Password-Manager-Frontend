@@ -7,13 +7,13 @@
   height: 100vh;
   width: auto;
   background-size: auto;
-  /* background-image: url(https://media.giphy.com/media/3og0IFrHkIglEOg8Ba/giphy.gif); */
+  background-image: url(https://media.giphy.com/media/3og0IFrHkIglEOg8Ba/giphy.gif);
 
-  /* background-attachment: url('bl.gif');
+  /* background-attachment: url('bl.gif'); */
   animation-name: trial;
   animation-duration: 100s;
   animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
-  animation-iteration-count: infinite; */
+  animation-iteration-count: infinite;
 }
 
 .login_box {
@@ -21,7 +21,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 85vh;
+  height: 90vh;
   width: 500px;
   background-color: rgb(255, 255, 255, 0.4);
   box-shadow: 20px;
@@ -29,6 +29,13 @@
   color: var(--textcolor);
   border-radius: var(--border-radius);
   backdrop-filter: blur(5px);
+  margin: 0 5px;
+}
+
+.login_head {
+  color: var(--primary-color);
+  text-transform: capitalize;
+  font-size: 2rem;
 }
 
 .login_form {
@@ -36,12 +43,6 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-}
-
-.login_head {
-  color: var(--primary-color);
-  text-transform: capitalize;
-  font-size: 2rem;
 }
 
 .login_input_box {
@@ -73,7 +74,6 @@
 
 .login_input:focus-visible {
   outline: none;
-  border: 2.5px solid var(--primary-color);
 }
 
 .login_input::placeholder {
