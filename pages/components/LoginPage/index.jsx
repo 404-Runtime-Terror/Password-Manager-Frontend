@@ -20,7 +20,7 @@ const LoginPage = () => {
           muted
           ref={vidRef}
         >
-          <source src="/BLACKHOLE.MP4" type="video/mp4" />
+          <source src="/blackhole.mp4" type="video/mp4" />
         </video>
 
         {/* if else statement: if isLoginPage is true then show login component else show signup component */}
