@@ -9,8 +9,6 @@ const Login = (props) => {
   return (
     <>
       <div className={style.login_background}>
-        {/* <iframe width="900" height="900" src="https://media.tenor.com/Pt3WqGJBXLUAAAAC/blackhole-space.gif" title="blackhole" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
-
         {/* main wrapper of login box */}
         <div className={style.login_box}>
           {/* login box header */}
@@ -23,7 +21,7 @@ const Login = (props) => {
             {/* username input  */}
             <form className={style.login_form}>
               <div className={style.login_input_box}>
-                <FaUserAlt className={style.login_input_icon}size={"23px"} />
+                <FaUserAlt className={style.login_input_icon} size={"23px"} />
                 <input
                   type="text"
                   placeholder="username"
@@ -33,7 +31,7 @@ const Login = (props) => {
 
               {/* password input  */}
               <div className={style.login_input_box}>
-                <IoMdLock className={style.login_input_icon}size={"32px"}  />
+                <IoMdLock className={style.login_input_icon} size={"32px"} />
                 <input
                   type="password"
                   placeholder="password"

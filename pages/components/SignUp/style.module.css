@@ -7,10 +7,22 @@
   height: 100vh;
   width: auto;
   background-size: cover;
-  background-image: url(/blackhole.gif);
+  /* background-image: url(/blackhole.gif); */
   animation-duration: 100s;
   animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
   animation-iteration-count: infinite;
+}
+
+.backgroundvideo {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
 }
 
 .signup_box {
@@ -113,4 +125,11 @@
 
 .signup_btn {
   width: 120px;
+}
+
+@media (max-width: 550px) {
+  .signup_box {
+    background-color: transparent;
+    backdrop-filter: none;
+  }
 }

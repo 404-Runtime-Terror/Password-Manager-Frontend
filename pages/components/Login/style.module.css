@@ -7,7 +7,7 @@
   height: 100vh;
   width: auto;
   background-size: cover;
-  background-image: url(/blackhole.gif);
+  /* background-image: url(/blackhole.gif); */
   animation-duration: 100s;
   animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
   animation-iteration-count: infinite;
@@ -26,7 +26,7 @@
   color: var(--textcolor);
   border-radius: var(--border-radius);
   backdrop-filter: blur(5px);
-  margin: 0 5px;
+  /* margin: 0 5px; */
 }
 
 .login_head {
@@ -105,9 +105,10 @@
   width: 120px;
 }
 
-@media (min-width: 550px) {
+@media (max-width: 550px) {
   .login_box {
-    /* display: block; */
+    background-color: transparent;
+    backdrop-filter: none;
   }
 
   .login_background {
