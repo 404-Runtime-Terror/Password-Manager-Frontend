@@ -10,6 +10,7 @@ body {
 body {
   background-color: #282828;
   font-family: var(--primary-font);
+  color: var(--textcolor);
 }
 :root {
   --primary-color: #9000ff;

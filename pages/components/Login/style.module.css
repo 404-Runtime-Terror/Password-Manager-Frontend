@@ -20,7 +20,8 @@
   justify-content: space-evenly;
   height: 90vh;
   width: 500px;
-  background-color: rgb(255, 255, 255, 0.4);
+  /* background-color: rgb(255, 255, 255, 0.4); */
+  background-color: rgba(247, 236, 255, 0.4);
   box-shadow: 20px;
   /* created variable for text color in globals.css */
   color: var(--textcolor);

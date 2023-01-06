@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react";
 import style from "./style.module.css";
 
@@ -8,6 +9,9 @@ import { IoMdLock } from "react-icons/io";
 const Signup = (props) => {
   return (
     <>
+      <Head>
+        <title>Password Manager | SignUp</title>
+      </Head>
       <div className={style.signup_background}>
         <div className={style.signup_box}>
           <div className={style.signup_head}>
