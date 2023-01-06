@@ -6,8 +6,9 @@
   margin: auto;
   height: 50vw;
   width: auto;
-  background-size: 100%;
-  background-image: url("../images/blackhole-space.gif");
+  background-size: auto;
+  background-image: url(https://media.giphy.com/media/3og0IFrHkIglEOg8Ba/giphy.gif)
+  
   /* background-attachment: url('bl.gif');
   animation-name: trial;
   animation-duration: 100s;
@@ -22,8 +23,9 @@
   justify-content: space-evenly;
   height: 85vh;
   width: 30vw;
-  background-color: rgb(64, 160, 149);
+  background-color: rgb(192, 192, 192,0.7);
   box-shadow: 20px;
+  
   /* created variable for text color in globals.css */
   color: var(--textcolor);
   border-radius: var(--border-radius);
@@ -39,6 +41,7 @@
 
 .login_head{
   color: var(--primary-color);
+  
 }
 
 .login_input{
@@ -49,10 +52,12 @@
   width: 20vw;
   border-radius: var(--border-radius);
 }
-
-#redirect{
+.redirect{
   text-decoration: none;
-  color: #000;
+}
+.redirect:hover{
+  /* text-decoration: none; */
+  color: var(--primary-color);
 }
 
 
@@ -68,7 +73,8 @@
   background-color: var(--primary-color);
   border: double;
   border-color: var(--primary-color);
-  padding: 10px 10px;
-  font-size: var(--font-size);
+  padding: 12px 15px;
+  width: 120px;
+  font-size: var(--btn-font-size);
   border-radius: var(--border-radius);
 }
