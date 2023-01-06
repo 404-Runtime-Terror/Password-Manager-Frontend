@@ -46,6 +46,7 @@
   color: var(--primary-color);
   text-transform: capitalize;
   font-size: 2rem;
+  /* margin-bottom: 10px; */
 }
 
 .form_box {

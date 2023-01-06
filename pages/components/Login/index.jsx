@@ -2,13 +2,39 @@ import Head from "next/head";
 import React, { useState } from "react";
 import style from "./style.module.css";
 
+// import axios
+import axios from "axios";
+
 // import icons
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdLock } from "react-icons/io";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc";
+
+// login component
+import { useGoogleLogin } from "@react-oauth/google";
 
 const Login = (props) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const googleLogin = useGoogleLogin({
+    onSuccess: async (respose) => {
+      try {
+        const res = await axios.get(
+          "https://www.googleapis.com/oauth2/v3/userinfo",
+          {
+            headers: {
+              Authorization: `Bearer ${respose.access_token}`,
+            },
+          }
+        );
+
+        console.log(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    },
+  });
 
   return (
     <>
@@ -72,17 +98,51 @@ const Login = (props) => {
               <div className={style.button_box}>
                 {/* login button */}
                 <button className={`${style.login_btn} btn`}>Login</button>
-
-                {/* signup button */}
-                {/* onclicking this button it will redirect to signup page */}
-                <button
-                  className={`${style.login_btn} btn`}
-                  onClick={() => props.setisLoginPage(false)}
-                >
-                  Signup
-                </button>
               </div>
             </form>
+            <br />
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 5,
+                width: "100%",
+              }}
+            >
+              <div class={style.bar} style={{ flex: 1 }}></div>
+              <div class={style.bar_text}>OR</div>
+              <div class={style.bar} style={{ flex: 1 }}></div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+                marginTop: 10,
+                gap: 10,
+                width: "100%",
+              }}
+            >
+              <div className={style.other_login_icon} onClick={googleLogin}>
+                <FcGoogle size={"30px"} />
+                <span style={{ marginLeft: 10 }}>Login with Google</span>
+              </div>
+            </div>
+            <br />
+
+            {/* signup button */}
+            {/* onclicking this button it will redirect to signup page */}
+            <div>
+              You don't have an account?{" "}
+              <a
+                onClick={() => props.setisLoginPage(false)}
+                className={style.redirect}
+                style={{ cursor: "pointer", color: "var(--primary-color)" }}
+              >
+                Signup
+              </a>
+            </div>
           </div>
         </div>
       </div>
