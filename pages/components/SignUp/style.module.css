@@ -133,3 +133,14 @@
     backdrop-filter: none;
   }
 }
+
+@media (max-width: 380px) {
+  .signup_input {
+    width: 250px;
+  }
+}
+@media (max-width: 340px) {
+  .signup_input {
+    width: 220px;
+  }
+}
