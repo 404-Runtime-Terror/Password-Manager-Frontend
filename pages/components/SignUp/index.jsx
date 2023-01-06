@@ -6,6 +6,7 @@ import style from "./style.module.css";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdLock } from "react-icons/io";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { SiGmail } from "react-icons/si";
 
 const Signup = (props) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -28,6 +29,14 @@ const Signup = (props) => {
                 <input
                   type="text"
                   placeholder="username"
+                  className={style.signup_input}
+                />
+              </div>
+              <div className={style.signup_input_box}>
+                <SiGmail className={style.signup_input_icon} size={"23px"} />
+                <input
+                  type="text"
+                  placeholder="email"
                   className={style.signup_input}
                 />
               </div>
