@@ -62,6 +62,7 @@
   width: 100%;
 }
 .signup_input_box {
+  position: relative;
   margin: 20px;
   margin-bottom: 40px;
 }
@@ -87,9 +88,16 @@
 
 .signup_input_icon {
   color: var(--primary-color);
-  position: relative;
-  left: 38px;
-  margin-bottom: -6px;
+  position: absolute;
+  left: 10px;
+  bottom: 50%;
+  transform: translate(0, 50%);
+  margin-bottom: 0px;
+}
+
+.eye_icon {
+  left: 88%;
+  cursor: pointer;
 }
 
 .checkbox {

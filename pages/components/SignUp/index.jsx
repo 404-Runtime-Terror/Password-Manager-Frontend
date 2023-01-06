@@ -1,12 +1,14 @@
 import Head from "next/head";
-import React from "react";
+import React, { useState } from "react";
 import style from "./style.module.css";
 
 // import icons
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdLock } from "react-icons/io";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Signup = (props) => {
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   return (
     <>
       <Head>
@@ -33,8 +35,24 @@ const Signup = (props) => {
               {/* // password input */}
               <div className={style.signup_input_box}>
                 <IoMdLock className={style.signup_input_icon} size={"32px"} />
+                {
+                  // if isPasswordVisible is true then show eye icon else show eye-invisible icon
+                  isPasswordVisible ? (
+                    <AiFillEyeInvisible
+                      className={`${style.signup_input_icon} ${style.eye_icon}`}
+                      size={"25px"}
+                      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                    />
+                  ) : (
+                    <AiFillEye
+                      className={`${style.signup_input_icon} ${style.eye_icon}`}
+                      size={"25px"}
+                      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                    />
+                  )
+                }
                 <input
-                  type="password"
+                  type={isPasswordVisible ? "text" : "password"}
                   placeholder="password"
                   className={style.signup_input}
                 />
@@ -43,8 +61,24 @@ const Signup = (props) => {
               {/* // confirm password input */}
               <div className={style.signup_input_box}>
                 <IoMdLock className={style.signup_input_icon} size={"32px"} />
+                {
+                  // if isPasswordVisible is true then show eye icon else show eye-invisible icon
+                  isPasswordVisible ? (
+                    <AiFillEyeInvisible
+                      className={`${style.signup_input_icon} ${style.eye_icon}`}
+                      size={"25px"}
+                      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                    />
+                  ) : (
+                    <AiFillEye
+                      className={`${style.signup_input_icon} ${style.eye_icon}`}
+                      size={"25px"}
+                      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                    />
+                  )
+                }
                 <input
-                  type="password"
+                  type={isPasswordVisible ? "text" : "password"}
                   placeholder="confirm password"
                   className={style.signup_input}
                 />

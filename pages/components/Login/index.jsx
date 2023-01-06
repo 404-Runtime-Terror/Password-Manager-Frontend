@@ -1,12 +1,15 @@
 import Head from "next/head";
-import React from "react";
+import React, { useState } from "react";
 import style from "./style.module.css";
 
 // import icons
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdLock } from "react-icons/io";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = (props) => {
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
   return (
     <>
       <Head>
@@ -36,8 +39,25 @@ const Login = (props) => {
               {/* password input  */}
               <div className={style.login_input_box}>
                 <IoMdLock className={style.login_input_icon} size={"32px"} />
+                {
+                  // if isPasswordVisible is true then show eye icon else show eye-invisible icon
+                  isPasswordVisible ? (
+                    <AiFillEyeInvisible
+                      className={`${style.login_input_icon} ${style.eye_icon}`}
+                      size={"25px"}
+                      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                    />
+                  ) : (
+                    <AiFillEye
+                      className={`${style.login_input_icon} ${style.eye_icon}`}
+                      size={"25px"}
+                      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                    />
+                  )
+                }
+
                 <input
-                  type="password"
+                  type={isPasswordVisible ? "text" : "password"}
                   placeholder="password"
                   className={style.login_input}
                 />
