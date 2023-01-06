@@ -1,15 +1,155 @@
-/* to center the signup box */
+.signup_background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+  height: 100vh;
+  width: auto;
+  background-size: cover;
+
+  /* background-image: url(/blackhole.gif); */
+  animation-duration: 100s;
+  animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+  animation-iteration-count: infinite;
+}
+
+.backgroundvideo {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
 .signup_box {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
+  height: 90vh;
+  width: 500px;
+  background-color: rgb(255, 255, 255, 0.4);
+  box-shadow: 20px;
+  /* created variable for text color in globals.css */
   color: var(--textcolor);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(5px);
+  margin: 0 5px;
 }
 
-/* to center the signup form */
+.signup_head {
+  color: var(--primary-color);
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+
 .form_box {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+.signup_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.signup_input_box {
+  position: relative;
+  margin: 20px;
+  margin-bottom: 40px;
+}
+
+.signup_input {
+  padding: 10px;
+  height: 45px;
+  width: 300px;
+  border: 0;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  padding-left: 50px;
+}
+
+.signup_input:focus {
+  outline: none;
+}
+
+.signup_input::placeholder {
+  text-transform: capitalize;
+}
+
+.signup_input_icon {
+  color: var(--primary-color);
+  position: absolute;
+  left: 10px;
+  bottom: 50%;
+  transform: translate(0, 50%);
+  margin-bottom: 0px;
+}
+
+.eye_icon {
+  left: 88%;
+  cursor: pointer;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+.checkbox input {
+  margin-right: 10px;
+}
+
+.checkbox label {
+  font-size: 1rem;
+}
+.checkbox a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.checkbox a:hover {
+  text-decoration: underline;
+}
+
+.button_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.signup_btn {
+  width: 120px;
+}
+
+@media (max-width: 550px) {
+  .signup_box {
+    background-color: transparent;
+    backdrop-filter: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .signup_input {
+    width: 250px;
+  }
+}
+@media (max-width: 340px) {
+  .signup_input {
+    width: 220px;
+  }
 }

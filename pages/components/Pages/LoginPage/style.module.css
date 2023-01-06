@@ -1,0 +1,18 @@
+.backgroundvideo {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.flip_card {
+  position: relative;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  transition: all 0.2s ease;
+}
