@@ -1,19 +1,16 @@
-.login_background{
+.login_background {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   margin: auto;
-  height: 50vw;
+  height: 100vh;
   width: auto;
-  background-size: auto;
-  background-image: url(https://media.giphy.com/media/3og0IFrHkIglEOg8Ba/giphy.gif)
-  
-  /* background-attachment: url('bl.gif');
-  animation-name: trial;
+  background-size: cover;
+  /* background-image: url(/blackhole.gif); */
   animation-duration: 100s;
   animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
-  animation-iteration-count: infinite; */
+  animation-iteration-count: infinite;
 }
 
 .login_box {
@@ -21,15 +18,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 85vh;
-  width: 30vw;
-  background-color: rgb(192, 192, 192,0.7);
+  height: 90vh;
+  width: 500px;
+  background-color: rgb(255, 255, 255, 0.4);
   box-shadow: 20px;
-  
   /* created variable for text color in globals.css */
   color: var(--textcolor);
   border-radius: var(--border-radius);
-  
+  backdrop-filter: blur(5px);
+  /* margin: 0 5px; */
+}
+
+.login_head {
+  color: var(--primary-color);
+  text-transform: capitalize;
+  font-size: 2rem;
 }
 
 .login_form {
@@ -39,42 +42,90 @@
   width: 100%;
 }
 
-.login_head{
-  color: var(--primary-color);
-  
-}
-
-.login_input{
+.login_input_box {
   margin: 20px;
   margin-bottom: 40px;
-  padding: 10px;
-  height: auto;
-  width: 20vw;
-  border-radius: var(--border-radius);
-}
-.redirect{
-  text-decoration: none;
-}
-.redirect:hover{
-  /* text-decoration: none; */
-  color: var(--primary-color);
 }
 
+.login_input {
+  padding: 10px;
+  height: 45px;
+  width: 300px;
+  border: 0;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  padding-left: 50px;
+  /* min-width: 200px; */
+}
+.login_input_box:nth-child(2) {
+  margin-left: 8px;
+}
+
+.login_input_icon {
+  color: var(--primary-color);
+  position: relative;
+  left: 38px;
+  margin-bottom: -6px;
+}
+
+.login_input:focus-visible {
+  outline: none;
+}
+
+.login_input::placeholder {
+  text-transform: capitalize;
+}
+
+.login_input_box:nth-child(2) {
+  margin-bottom: 5px;
+}
+
+.redirect {
+  width: 300px;
+  text-align: right;
+  text-decoration: none;
+  color: white;
+  margin-right: 3px;
+}
+.redirect:hover {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
 
 .button_box {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 20px;
+  margin-top: 50px;
   width: 100%;
 }
 
-.login_btn{
-  background-color: var(--primary-color);
-  border: double;
-  border-color: var(--primary-color);
-  padding: 12px 15px;
+.login_btn {
   width: 120px;
-  font-size: var(--btn-font-size);
-  border-radius: var(--border-radius);
+}
+
+@media (max-width: 550px) {
+  .login_box {
+    background-color: transparent;
+    backdrop-filter: none;
+  }
+
+  .login_background {
+    width: 100%;
+  }
+
+  .redirect {
+    /* width: 200px; */
+  }
+}
+
+@media (max-width: 380px) {
+  .login_input {
+    width: 200px;
+  }
+  .redirect {
+    width: 200px;
+    font-size: 0.8rem;
+  }
 }
