@@ -5,9 +5,9 @@ import Signup from "../../SignUp/index";
 
 const LoginPage = () => {
   const [isLoginPage, setisLoginPage] = useState(true);
-  const vidRef = React.useRef();
+  const vidRef = useRef();
 
-  React.useEffect(() => {
+  useEffect(() => {
     vidRef.current.play();
   }, []);
   return (
@@ -22,13 +22,17 @@ const LoginPage = () => {
         >
           <source src="/blackhole.mp4" type="video/mp4" />
         </video>
-
-        {/* if else statement: if isLoginPage is true then show login component else show signup component */}
-        {isLoginPage ? (
-          <Login setisLoginPage={setisLoginPage} />
-        ) : (
-          <Signup setisLoginPage={setisLoginPage} />
-        )}
+        <div
+          style={{ transform: isLoginPage ? "rotateY(180deg)" : "none" }}
+          className={style.flip_card}
+        >
+          {/* if else statement: if isLoginPage is true then show login component else show signup component */}
+          {isLoginPage ? (
+            <Login setisLoginPage={setisLoginPage} />
+          ) : (
+            <Signup setisLoginPage={setisLoginPage} />
+          )}
+        </div>
       </div>
     </>
   );
