@@ -134,7 +134,7 @@ const Login = (props) => {
             {/* signup button */}
             {/* onclicking this button it will redirect to signup page */}
             <div>
-              You don't have an account?{" "}
+              You don&apos;t have an account?{" "}
               <a
                 onClick={() => props.setisLoginPage(false)}
                 className={style.redirect}
