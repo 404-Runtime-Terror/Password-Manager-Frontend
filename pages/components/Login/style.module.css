@@ -37,6 +37,14 @@
   font-size: 2rem;
 }
 
+.form_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* width: 100%; */
+}
+
 .login_form {
   display: flex;
   flex-direction: column;
@@ -47,7 +55,7 @@
 .login_input_box {
   position: relative;
   margin: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .login_input {
@@ -60,9 +68,6 @@
   font-weight: 500;
   padding-left: 50px;
   /* min-width: 200px; */
-}
-.login_input_box:nth-child(2) {
-  margin-left: 8px;
 }
 
 .login_input_icon {
@@ -107,12 +112,50 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 50px;
+  margin-top: 40px;
   width: 100%;
 }
 
 .login_btn {
-  width: 120px;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.bar {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  text-align: center;
+  height: 1px;
+  width: 100%;
+}
+
+.bar_text {
+  color: #ccc;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0 10px;
+}
+
+.other_login_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 0.9rem;
+  margin: 0 10px;
+  cursor: pointer;
+  background: #fff;
+  padding: 5px;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.other_login_icon:hover {
+  background: #eee;
+}
+
+.other_login_icon:active {
+  background: #ccc;
 }
 
 @media (max-width: 550px) {
