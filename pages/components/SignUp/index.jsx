@@ -9,12 +9,16 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { SiGmail } from "react-icons/si";
 
 const Signup = (props) => {
+  // state for password visibility
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   return (
     <>
+    {/* // head tag for title */}
       <Head>
         <title>Password Manager | SignUp</title>
       </Head>
+
+      {/* // background */}
       <div className={style.signup_background}>
         <div className={style.signup_box}>
           <div className={style.signup_head}>

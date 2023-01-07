@@ -39,6 +39,7 @@ const Login = (props) => {
         // print user data
         console.log(res.data);
       } catch (err) {
+        // if any error occur then print it
         console.log(err);
       }
     },
@@ -46,9 +47,12 @@ const Login = (props) => {
 
   return (
     <>
+    // this is the head of the page
       <Head>
         <title>Password Manager | Login</title>
       </Head>
+
+
       <div className={style.login_background}>
         {/* main wrapper of login box */}
         <div className={style.login_box}>
@@ -110,6 +114,7 @@ const Login = (props) => {
             </form>
             <br />
 
+            {/* or bar */}  
             <div
               style={{
                 display: "flex",
@@ -122,6 +127,8 @@ const Login = (props) => {
               <div class={style.bar_text}>OR</div>
               <div class={style.bar} style={{ flex: 1 }}></div>
             </div>
+
+            {/* google login button */}
             <div
               style={{
                 display: "flex",
@@ -133,6 +140,7 @@ const Login = (props) => {
               }}
             >
               <div className={style.other_login_icon} onClick={googleLogin}>
+                {/* // google icon */}
                 <FcGoogle size={"30px"} />
                 <span style={{ marginLeft: 10 }}>Login with Google</span>
               </div>
