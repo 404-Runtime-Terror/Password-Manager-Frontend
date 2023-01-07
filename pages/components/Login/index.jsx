@@ -48,7 +48,9 @@ const Login = (props) => {
     });
   };
 
-  // function to authetiacate with google
+  {
+    /*// function to authetiacate with google*/
+  }
   const googleLogin = useGoogleLogin({
     // in respose google will give the user token
     onSuccess: async (respose) => {
