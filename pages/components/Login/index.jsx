@@ -2,7 +2,7 @@ import Head from "next/head";
 import React, { useState } from "react";
 import style from "./style.module.css";
 
-// import axios
+// import axios for fetch data from google
 import axios from "axios";
 
 // import icons
@@ -11,24 +11,32 @@ import { IoMdLock } from "react-icons/io";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 
-// login component
+// google login component
 import { useGoogleLogin } from "@react-oauth/google";
 
 const Login = (props) => {
+  
+  // var to check is login page visable 
+  // if true login page , false  signup page
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
+  // function to authetiacate with google
   const googleLogin = useGoogleLogin({
+    
+    // in respose google will give the user token 
     onSuccess: async (respose) => {
       try {
+        // with the help of token google will fetch the user data and save it in 'res'
         const res = await axios.get(
           "https://www.googleapis.com/oauth2/v3/userinfo",
           {
             headers: {
-              Authorization: `Bearer ${respose.access_token}`,
+              Authorization: `Bearer ${respose.access_token}`,// user token
             },
           }
         );
-
+        
+        // print user data
         console.log(res.data);
       } catch (err) {
         console.log(err);
