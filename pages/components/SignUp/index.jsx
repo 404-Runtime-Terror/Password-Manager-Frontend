@@ -7,18 +7,15 @@ import { FaUserAlt } from "react-icons/fa";
 import { IoMdLock } from "react-icons/io";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { SiGmail } from "react-icons/si";
+import { FcGoogle } from "react-icons/fc";
 
 const Signup = (props) => {
-  // state for password visibility
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   return (
     <>
-    {/* // head tag for title */}
       <Head>
         <title>Password Manager | SignUp</title>
       </Head>
-
-      {/* // background */}
       <div className={style.signup_background}>
         <div className={style.signup_box}>
           <div className={style.signup_head}>
@@ -66,13 +63,13 @@ const Signup = (props) => {
                 }
                 <input
                   type={isPasswordVisible ? "text" : "password"}
-                  placeholder="password"
+                  placeholder="new password"
                   className={style.signup_input}
                 />
               </div>
 
               {/* // confirm password input */}
-              <div className={style.signup_input_box}>
+              {/* <div className={style.signup_input_box}>
                 <IoMdLock className={style.signup_input_icon} size={"32px"} />
                 {
                   // if isPasswordVisible is true then show eye icon else show eye-invisible icon
@@ -95,7 +92,7 @@ const Signup = (props) => {
                   placeholder="confirm password"
                   className={style.signup_input}
                 />
-              </div>
+              </div> */}
 
               {/* // checkbox for terms and conditions */}
               <div className={style.checkbox}>
@@ -112,14 +109,51 @@ const Signup = (props) => {
 
                 {/* // login button */}
                 {/* // onclicking this button it will redirect to login page */}
-                <button
+                {/* <button
                   className={`${style.signup_btn} btn`}
                   onClick={() => props.setisLoginPage(true)}
                 >
                   Login
-                </button>
+                </button> */}
               </div>
             </form>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 5,
+              width: "60%",
+            }}
+          >
+            <div class={style.bar} style={{ flex: 1 }}></div>
+            <div class={style.bar_text}>OR</div>
+            <div class={style.bar} style={{ flex: 1 }}></div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
+              marginTop: 0,
+              gap: 10,
+              width: "100%",
+            }}
+          >
+            <div className={style.other_signup_icon}>
+              <FcGoogle size={"30px"} />
+              <span style={{ marginLeft: 10 }}>Login with Google</span>
+            </div>
+          </div>
+          <div>
+            Do you already have account?{" "}
+            <a
+              onClick={() => props.setisLoginPage(true)}
+              className={style.redirect}
+              style={{ cursor: "pointer", color: "var(--primary-color)" }}
+            >
+              Login
+            </a>
           </div>
         </div>
       </div>

@@ -65,7 +65,7 @@
 .signup_input_box {
   position: relative;
   margin: 10px;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
 }
 
 .signup_input {
@@ -105,7 +105,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 0px;
   width: 100%;
 }
 .checkbox input {
@@ -113,7 +113,7 @@
 }
 
 .checkbox label {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .checkbox a {
   color: var(--primary-color);
@@ -129,18 +129,59 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 50px;
+  margin-top: 30px;
   width: 100%;
 }
 
 .signup_btn {
-  width: 120px;
+  width: 60%;
+  border-radius: 5px;
 }
 
+.bar {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  text-align: center;
+  height: 1px;
+  width: 100%;
+}
+
+.bar_text {
+  color: #ccc;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0 10px;
+}
+
+.other_signup_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 0.9rem;
+  margin: 0 10px;
+  cursor: pointer;
+  background: #fff;
+  padding: 5px;
+  width: 60%;
+  border-radius: 5px;
+}
+
+.other_signup_icon:hover {
+  background: #eee;
+}
+
+.other_signup_icon:active {
+  background: #ccc;
+}
 @media (max-width: 550px) {
   .signup_box {
     background-color: transparent;
     backdrop-filter: none;
+  }
+  .signup_btn,
+  .other_signup_icon {
+    width: 70%;
   }
 }
 
