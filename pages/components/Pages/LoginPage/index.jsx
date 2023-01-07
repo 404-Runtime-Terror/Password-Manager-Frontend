@@ -4,6 +4,10 @@ import Login from "../../Login/index";
 import Signup from "../../SignUp/index";
 import { motion } from "framer-motion";
 
+// import notifaction component
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const LoginPage = () => {
   const [isLoginPage, setisLoginPage] = useState(true);
   const vidRef = useRef();
@@ -11,6 +15,7 @@ const LoginPage = () => {
   useEffect(() => {
     vidRef.current.play();
   }, []);
+
   return (
     <>
       <div>
@@ -47,6 +52,7 @@ const LoginPage = () => {
           </div>
         </motion.div>
       </div>
+      <ToastContainer />
     </>
   );
 };
