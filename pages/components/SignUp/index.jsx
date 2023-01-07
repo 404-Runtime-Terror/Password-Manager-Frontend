@@ -9,6 +9,8 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { SiGmail } from "react-icons/si";
 import { FcGoogle } from "react-icons/fc";
 
+import axios from "axios";
+
 // google login component
 import { useGoogleLogin } from "@react-oauth/google";
 
@@ -17,9 +19,13 @@ import { toast } from "react-toastify";
 const Signup = (props) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  const notifySuccessfull = (e) => {
-    e.preventDefault();
-    toast.success("SignUp Succeessfull", {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [termsandcondition, setTermsandcondition] = useState(false);
+
+  const notifySuccessfull = () => {
+    toast.success("Account Created", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -30,9 +36,8 @@ const Signup = (props) => {
       theme: "dark",
     });
   };
-  const notifyUnSuccessfull = (e) => {
-    e.preventDefault();
-    toast.error("SignUp Unsucceessfull", {
+  const notifyUnSuccessfull = (msg) => {
+    toast.error(msg, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -59,13 +64,45 @@ const Signup = (props) => {
         );
 
         // print user data
-        console.log(res.data);
+        const userData = res.data;
+        const googleusername = userData.given_name + "_" + userData.family_name;
+        const googleemail = userData.email;
+        const googlepassword =
+          userData.given_name + userData.family_name + userData.sub;
+        getSignup(googleusername, googleemail, googlepassword);
       } catch (err) {
         // if any error occur then print it
         console.log(err);
       }
     },
   });
+
+  const getSignup = (username, email, password) => {
+    axios
+      .get(
+        "https://password-manager-backend.up.railway.app/api/signup?username=" +
+          username +
+          "&email=" +
+          email +
+          "&password=" +
+          password
+      )
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.key === true) {
+          notifySuccessfull();
+          setUsername("");
+          setEmail("");
+          setPassword("");
+        } else {
+          notifyUnSuccessfull("Account already exist");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        notifyUnSuccessfull("Something went wrong");
+      });
+  };
 
   return (
     <>
@@ -87,6 +124,8 @@ const Signup = (props) => {
                   type="text"
                   placeholder="username"
                   className={style.signup_input}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
               <div className={style.signup_input_box}>
@@ -95,6 +134,8 @@ const Signup = (props) => {
                   type="text"
                   placeholder="email"
                   className={style.signup_input}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
@@ -121,6 +162,8 @@ const Signup = (props) => {
                   type={isPasswordVisible ? "text" : "password"}
                   placeholder="new password"
                   className={style.signup_input}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
 
@@ -152,7 +195,11 @@ const Signup = (props) => {
 
               {/* // checkbox for terms and conditions */}
               <div className={style.checkbox}>
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  value={termsandcondition}
+                  onChange={(e) => setTermsandcondition(e.target.checked)}
+                />
                 <label>
                   I agree to the <a href="#">Terms and Conditions</a>
                 </label>
@@ -163,7 +210,29 @@ const Signup = (props) => {
                 {/* // signup button */}
                 <button
                   className={`${style.signup_btn} btn`}
-                  onClick={notifySuccessfull}
+                  onClick={(e) => {
+                    e.preventDefault();
+
+                    if (username) {
+                      if (email) {
+                        if (password) {
+                          if (termsandcondition) {
+                            getSignup(username, email, password);
+                          } else {
+                            notifyUnSuccessfull(
+                              "Please agree to terms and conditions"
+                            );
+                          }
+                        } else {
+                          notifyUnSuccessfull("Please enter password");
+                        }
+                      } else {
+                        notifyUnSuccessfull("Please enter email");
+                      }
+                    } else {
+                      notifyUnSuccessfull("Please enter username");
+                    }
+                  }}
                 >
                   Signup
                 </button>
