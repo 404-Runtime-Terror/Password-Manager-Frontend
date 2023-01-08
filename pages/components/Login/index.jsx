@@ -21,8 +21,10 @@ const Login = (props) => {
   // if true login page , false  signup page
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  const notifySuccessfull = (e) => {
-    e.preventDefault();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const notifySuccessfull = () => {
     toast.success("Login Succeessfull", {
       position: "top-right",
       autoClose: 5000,
@@ -34,9 +36,8 @@ const Login = (props) => {
       theme: "dark",
     });
   };
-  const notifyUnSuccessfull = (e) => {
-    e.preventDefault();
-    toast.error("Login Unsucceessfull", {
+  const notifyUnSuccessfull = (msg) => {
+    toast.error(msg, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -66,13 +67,43 @@ const Login = (props) => {
         );
 
         // print user data
-        console.log(res.data);
+        const userData = res.data;
+        const googleusername = userData.given_name + "_" + userData.family_name;
+        const googlepassword =
+          userData.given_name + userData.family_name + userData.sub;
+        getLogin(googleusername, googlepassword);
       } catch (err) {
         // if any error occur then print it
         console.log(err);
       }
     },
   });
+
+  const getLogin = async (username, password) => {
+    // get request to backend to check if user is valid or not
+    await axios
+      .get(
+        "https://password-manager-backend.up.railway.app/api/login?username=" +
+          username +
+          "&password=" +
+          password
+      )
+      .then((res) => {
+        console.log(res);
+        if (res.data.key === true) {
+          notifySuccessfull();
+          setUsername("");
+          setPassword("");
+        } else {
+          notifyUnSuccessfull("Wrong Username or Password");
+        }
+      })
+      .catch((err) => {
+        notifyUnSuccessfull("Something went wrong");
+      });
+
+    // notifySuccessfull()
+  };
 
   return (
     <>
@@ -99,6 +130,8 @@ const Login = (props) => {
                   type="text"
                   placeholder="username"
                   className={style.login_input}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
 
@@ -126,6 +159,8 @@ const Login = (props) => {
                   type={isPasswordVisible ? "text" : "password"}
                   placeholder="password"
                   className={style.login_input}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
 
@@ -139,7 +174,18 @@ const Login = (props) => {
                 {/* login button */}
                 <button
                   className={`${style.login_btn} btn`}
-                  onClick={(e) => notifyUnSuccessfull(e)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (username.length > 0) {
+                      if (password.length > 0) {
+                        getLogin(username, password);
+                      } else {
+                        notifyUnSuccessfull("Please enter password");
+                      }
+                    } else {
+                      notifyUnSuccessfull("Please enter username");
+                    }
+                  }}
                 >
                   Login
                 </button>

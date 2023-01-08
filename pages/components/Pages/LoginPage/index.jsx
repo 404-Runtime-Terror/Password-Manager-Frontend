@@ -21,7 +21,7 @@ const LoginPage = () => {
       <div>
         <video
           className={style.backgroundvideo}
-          autoplay
+          autoPlay
           loop
           muted
           ref={vidRef}
