@@ -88,7 +88,7 @@ const Signup = (props) => {
           password
       )
       .then((res) => {
-        console.log(res.data);
+        console.log(res);
         if (res.data.key === true) {
           notifySuccessfull();
           setUsername("");

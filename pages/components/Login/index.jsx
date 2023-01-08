@@ -36,8 +36,8 @@ const Login = (props) => {
       theme: "dark",
     });
   };
-  const notifyUnSuccessfull = () => {
-    toast.error("Login Unsucceessfull", {
+  const notifyUnSuccessfull = (msg) => {
+    toast.error(msg, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -80,6 +80,7 @@ const Login = (props) => {
   });
 
   const getLogin = async (username, password) => {
+    // get request to backend to check if user is valid or not
     await axios
       .get(
         "https://password-manager-backend.up.railway.app/api/login?username=" +
@@ -88,20 +89,20 @@ const Login = (props) => {
           password
       )
       .then((res) => {
+        console.log(res);
         if (res.data.key === true) {
           notifySuccessfull();
           setUsername("");
           setPassword("");
         } else {
-          notifyUnSuccessfull();
+          notifyUnSuccessfull("Wrong Username or Password");
         }
       })
       .catch((err) => {
-        notifyUnSuccessfull();
+        notifyUnSuccessfull("Something went wrong");
       });
 
-    // notifySuccessfull();
-    console.log(username, password);
+    // notifySuccessfull()
   };
 
   return (
@@ -175,7 +176,15 @@ const Login = (props) => {
                   className={`${style.login_btn} btn`}
                   onClick={(e) => {
                     e.preventDefault();
-                    getLogin(username, password);
+                    if (username.length > 0) {
+                      if (password.length > 0) {
+                        getLogin(username, password);
+                      } else {
+                        notifyUnSuccessfull("Please enter password");
+                      }
+                    } else {
+                      notifyUnSuccessfull("Please enter username");
+                    }
                   }}
                 >
                   Login
