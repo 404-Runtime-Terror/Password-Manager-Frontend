@@ -272,7 +272,7 @@ const Signup = (props) => {
           >
             <div className={style.other_signup_icon} onClick={googleSignup}>
               <FcGoogle size={"30px"} />
-              <span style={{ marginLeft: 10 }}>Login with Google</span>
+              <span style={{ marginLeft: 10 }}>Signup with Google</span>
             </div>
           </div>
           <div>
