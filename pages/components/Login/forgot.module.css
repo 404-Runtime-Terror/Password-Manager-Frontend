@@ -1,0 +1,128 @@
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-size: cover;
+  z-index: -1;
+  width: 90%;
+}
+
+.forgot_box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 90vh;
+  width: 500px;
+  background-color: rgba(247, 236, 255, 0.4);
+  box-shadow: 20px;
+  color: var(--textcolor);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+  clip-path: circle(0% at 0% 100%);
+  transition: clip-path 0.5s ease;
+}
+
+.forgot_box:hover {
+  clip-path: circle(150% at 0% 100%);
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--textcolor);
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.forgot_head {
+  color: var(--primary-color);
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.forgot_input_box {
+  position: relative;
+  display: flex;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.forgot_input {
+  padding: 10px;
+  height: 45px;
+  width: 300px;
+  border: 0;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  padding-left: 50px;
+}
+
+.forgot_input:focus {
+  outline: none;
+}
+
+.forgot_input::placeholder {
+  text-transform: capitalize;
+}
+
+.forgot_input_icon {
+  color: var(--primary-color);
+  position: absolute;
+  left: 10px;
+  bottom: 50%;
+  transform: translate(0, 50%);
+  margin-bottom: 0px;
+}
+
+.button_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.signup_btn {
+  width: 60%;
+  border-radius: 5px;
+}
+
+.email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--textcolo);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.email a {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.email a:hover {
+  text-decoration: underline;
+}

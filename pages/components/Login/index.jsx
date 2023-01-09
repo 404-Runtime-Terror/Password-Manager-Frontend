@@ -13,16 +13,22 @@ import { FcGoogle } from "react-icons/fc";
 
 // google login component
 import { useGoogleLogin } from "@react-oauth/google";
+import ForgotPassword from "./forgotpassword";
 
 import { toast } from "react-toastify";
+import Loader from "../Loader";
 
 const Login = (props) => {
   // var to check is login page visable
   // if true login page , false  signup page
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
+  const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const notifySuccessfull = () => {
     toast.success("Login Succeessfull", {
@@ -81,16 +87,17 @@ const Login = (props) => {
 
   const getLogin = async (username, password) => {
     // get request to backend to check if user is valid or not
+    setIsLoading(true);
     await axios
       .get(
-        "https://password-manager-backend.up.railway.app/api/login?username=" +
+        "https://password-manager-backend.up.railway.app/user/login?username=" +
           username +
           "&password=" +
           password
       )
       .then((res) => {
-        console.log(res);
-        if (res.data.key === true) {
+        console.log(res.data);
+        if (res.data.isLogin === true) {
           notifySuccessfull();
           setUsername("");
           setPassword("");
@@ -102,145 +109,163 @@ const Login = (props) => {
         notifyUnSuccessfull("Something went wrong");
       });
 
+    setIsLoading(false);
+
     // notifySuccessfull()
   };
 
   return (
     <>
       {/* // this is the head of the page */}
-      <Head>
-        <title>Password Manager | Login</title>
-      </Head>
 
-      <div className={style.login_background}>
-        {/* main wrapper of login box */}
-        <div className={style.login_box}>
-          {/* login box header */}
-          <div className={style.login_head}>
-            <h1>login</h1>
-          </div>
+      <>
+        <Head>
+          <title>Password Manager | Login</title>
+        </Head>
+        <div className={style.login_background}>
+          <ForgotPassword
+            setIsForgotPasswordOpen={setIsForgotPasswordOpen}
+            isForgotPasswordOpen={isForgotPasswordOpen}
+          />
+          {/* main wrapper of login box */}
+          <div
+            className={style.login_box}
+            style={{
+              opacity: isForgotPasswordOpen ? 0 : 1,
+              zIndex: isForgotPasswordOpen ? -1 : 1,
+            }}
+          >
+            {/* login box header */}
+            <div className={style.login_head}>
+              <h1>login</h1>
+            </div>
 
-          {/* login box body */}
-          <div className={style.form_box}>
-            {/* username input  */}
-            <form className={style.login_form}>
-              <div className={style.login_input_box}>
-                <FaUserAlt className={style.login_input_icon} size={"23px"} />
-                <input
-                  type="text"
-                  placeholder="username"
-                  className={style.login_input}
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </div>
+            {/* login box body */}
+            <div className={style.form_box}>
+              {/* username input  */}
+              <form className={style.login_form}>
+                <div className={style.login_input_box}>
+                  <FaUserAlt className={style.login_input_icon} size={"23px"} />
+                  <input
+                    type="text"
+                    placeholder="username"
+                    className={style.login_input}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                </div>
 
-              {/* password input  */}
-              <div className={style.login_input_box}>
-                <IoMdLock className={style.login_input_icon} size={"32px"} />
-                {
-                  // if isPasswordVisible is true then show eye icon else show eye-invisible icon
-                  isPasswordVisible ? (
-                    <AiFillEyeInvisible
-                      className={`${style.login_input_icon} ${style.eye_icon}`}
-                      size={"25px"}
-                      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
-                    />
-                  ) : (
-                    <AiFillEye
-                      className={`${style.login_input_icon} ${style.eye_icon}`}
-                      size={"25px"}
-                      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
-                    />
-                  )
-                }
+                {/* password input  */}
+                <div className={style.login_input_box}>
+                  <IoMdLock className={style.login_input_icon} size={"32px"} />
+                  {
+                    // if isPasswordVisible is true then show eye icon else show eye-invisible icon
+                    isPasswordVisible ? (
+                      <AiFillEyeInvisible
+                        className={`${style.login_input_icon} ${style.eye_icon}`}
+                        size={"25px"}
+                        onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                      />
+                    ) : (
+                      <AiFillEye
+                        className={`${style.login_input_icon} ${style.eye_icon}`}
+                        size={"25px"}
+                        onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                      />
+                    )
+                  }
 
-                <input
-                  type={isPasswordVisible ? "text" : "password"}
-                  placeholder="password"
-                  className={style.login_input}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
+                  <input
+                    type={isPasswordVisible ? "text" : "password"}
+                    placeholder="password"
+                    className={style.login_input}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
 
-              {/* forgot password link */}
-              <a href="#" className={style.redirect}>
-                Forgot Password
-              </a>
-
-              {/* button  box*/}
-              <div className={style.button_box}>
-                {/* login button */}
-                <button
-                  className={`${style.login_btn} btn`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (username.length > 0) {
-                      if (password.length > 0) {
-                        getLogin(username, password);
-                      } else {
-                        notifyUnSuccessfull("Please enter password");
-                      }
-                    } else {
-                      notifyUnSuccessfull("Please enter username");
-                    }
-                  }}
+                {/* forgot password link */}
+                <a
+                  href="#forgotpassword"
+                  className={style.redirect}
+                  onClick={() => setIsForgotPasswordOpen(true)}
                 >
-                  Login
-                </button>
-              </div>
-            </form>
-            <br />
+                  Forgot Password
+                </a>
 
-            {/* or bar */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 5,
-                width: "100%",
-              }}
-            >
-              <div class={style.bar} style={{ flex: 1 }}></div>
-              <div class={style.bar_text}>OR</div>
-              <div class={style.bar} style={{ flex: 1 }}></div>
-            </div>
+                {/* button  box*/}
+                <div className={style.button_box}>
+                  {/* login button */}
+                  <button
+                    className={`${style.login_btn} btn`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (username.length > 0) {
+                        if (password.length > 0) {
+                          getLogin(username, password);
+                        } else {
+                          notifyUnSuccessfull("Please enter password");
+                        }
+                      } else {
+                        notifyUnSuccessfull("Please enter username");
+                      }
+                    }}
+                  >
+                    Login <Loader isOn={isLoading} width={"20px"} />
+                  </button>
+                </div>
+              </form>
+              <br />
 
-            {/* google login button */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                marginTop: 10,
-                gap: 10,
-                width: "100%",
-              }}
-            >
-              <div className={style.other_login_icon} onClick={googleLogin}>
-                {/* // google icon */}
-                <FcGoogle size={"30px"} />
-                <span style={{ marginLeft: 10 }}>Login with Google</span>
-              </div>
-            </div>
-            <br />
-
-            {/* signup button */}
-            {/* onclicking this button it will redirect to signup page */}
-            <div>
-              You don&apos;t have an account?{" "}
-              <a
-                onClick={() => props.setisLoginPage(false)}
-                className={style.redirect}
-                style={{ cursor: "pointer", color: "var(--primary-color)" }}
+              {/* or bar */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 5,
+                  width: "100%",
+                }}
               >
-                Signup
-              </a>
+                <div class={style.bar} style={{ flex: 1 }}></div>
+                <div class={style.bar_text}>OR</div>
+                <div class={style.bar} style={{ flex: 1 }}></div>
+              </div>
+
+              {/* google login button */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  flexDirection: "column",
+                  marginTop: 10,
+                  gap: 10,
+                  width: "100%",
+                }}
+              >
+                <div className={style.other_login_icon} onClick={googleLogin}>
+                  {/* // google icon */}
+                  <FcGoogle size={"30px"} />
+                  <span style={{ marginLeft: 10 }}>Login with Google</span>
+                </div>
+              </div>
+              <br />
+
+              {/* signup button */}
+              {/* onclicking this button it will redirect to signup page */}
+              <div>
+                You don&apos;t have an account?{" "}
+                <a
+                  onClick={() => props.setisLoginPage(false)}
+                  className={style.redirect}
+                  style={{ cursor: "pointer", color: "var(--primary-color)" }}
+                >
+                  Signup
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </>
     </>
   );
 };
