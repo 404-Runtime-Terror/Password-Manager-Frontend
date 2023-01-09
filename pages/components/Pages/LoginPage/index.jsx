@@ -12,14 +12,14 @@ const LoginPage = () => {
   const [isLoginPage, setisLoginPage] = useState(true);
   const vidRef = useRef();
 
-  useEffect(() => {
-    vidRef.current.play();
-  }, []);
+  // useEffect(() => {
+  //   vidRef.current.play();
+  // }, []);
 
   return (
     <>
-      <div>
-        <video
+      <div className={style.background}>
+        {/* <video
           className={style.backgroundvideo}
           autoPlay
           loop
@@ -27,7 +27,7 @@ const LoginPage = () => {
           ref={vidRef}
         >
           <source src="/blackhole.mp4" type="video/mp4" />
-        </video>
+        </video> */}
         <motion.div
           initial={{ y: "-100vh", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

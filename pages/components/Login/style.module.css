@@ -1,4 +1,5 @@
 .login_background {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,9 +10,7 @@
   background-size: cover;
   transform: rotateY(180deg);
   /* background-image: url(/blackhole.gif); */
-  animation-duration: 100s;
-  animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
-  animation-iteration-count: infinite;
+  transition: all 0.5s ease-in-out 0.5s;
 }
 
 .login_box {
@@ -27,7 +26,7 @@
   /* created variable for text color in globals.css */
   color: var(--textcolor);
   border-radius: var(--border-radius);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   /* margin: 0 5px; */
 }
 

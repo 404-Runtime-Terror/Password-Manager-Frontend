@@ -95,15 +95,13 @@ const Signup = (props) => {
           setEmail("");
           setPassword("");
         } else {
-          if(res.data.isEmailExist === true){
+          if (res.data.isEmailExist === true) {
             notifyUnSuccessfull("Email Already Exist");
-          }
-          else if(res.data.isUsernameExist === true){
+          } else if (res.data.isUsernameExist === true) {
             notifyUnSuccessfull("Username Already Exist");
-          }else{
-            notifyUnSuccessfull("Account Already Exist")
+          } else {
+            notifyUnSuccessfull("Account Already Exist");
           }
-          
         }
       })
       .catch((err) => {
@@ -174,32 +172,6 @@ const Signup = (props) => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-
-              {/* // confirm password input */}
-              {/* <div className={style.signup_input_box}>
-                <IoMdLock className={style.signup_input_icon} size={"32px"} />
-                {
-                  // if isPasswordVisible is true then show eye icon else show eye-invisible icon
-                  isPasswordVisible ? (
-                    <AiFillEyeInvisible
-                      className={`${style.signup_input_icon} ${style.eye_icon}`}
-                      size={"25px"}
-                      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
-                    />
-                  ) : (
-                    <AiFillEye
-                      className={`${style.signup_input_icon} ${style.eye_icon}`}
-                      size={"25px"}
-                      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
-                    />
-                  )
-                }
-                <input
-                  type={isPasswordVisible ? "text" : "password"}
-                  placeholder="confirm password"
-                  className={style.signup_input}
-                />
-              </div> */}
 
               {/* // checkbox for terms and conditions */}
               <div className={style.checkbox}>
