@@ -88,14 +88,22 @@ const Signup = (props) => {
           password
       )
       .then((res) => {
-        console.log(res);
-        if (res.data.key === true) {
+        console.log(res.data);
+        if (res.data.isSignup === true) {
           notifySuccessfull();
           setUsername("");
           setEmail("");
           setPassword("");
         } else {
-          notifyUnSuccessfull("Account already exist");
+          if(res.data.isEmailExist === true){
+            notifyUnSuccessfull("Email Already Exist");
+          }
+          else if(res.data.isUsernameExist === true){
+            notifyUnSuccessfull("Username Already Exist");
+          }else{
+            notifyUnSuccessfull("Account Already Exist")
+          }
+          
         }
       })
       .catch((err) => {
