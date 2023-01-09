@@ -80,7 +80,7 @@ const Signup = (props) => {
   const getSignup = (username, email, password) => {
     axios
       .get(
-        "https://password-manager-backend.up.railway.app/api/signup?username=" +
+        "https://password-manager-backend.up.railway.app/user/signup?username=" +
           username +
           "&email=" +
           email +

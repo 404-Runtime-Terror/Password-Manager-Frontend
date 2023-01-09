@@ -86,7 +86,7 @@ const Login = (props) => {
     // get request to backend to check if user is valid or not
     await axios
       .get(
-        "https://password-manager-backend.up.railway.app/api/login?username=" +
+        "https://password-manager-backend.up.railway.app/user/login?username=" +
           username +
           "&password=" +
           password
