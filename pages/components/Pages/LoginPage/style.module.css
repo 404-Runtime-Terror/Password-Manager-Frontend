@@ -9,3 +9,10 @@
   bottom: 0;
   z-index: -1;
 }
+
+.flip_card {
+  position: relative;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  transition: all 0.2s ease;
+}
