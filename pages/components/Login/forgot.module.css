@@ -26,7 +26,7 @@
   border-radius: var(--border-radius);
   backdrop-filter: blur(10px);
   clip-path: circle(0% at 0% 100%);
-  transition: clip-path 0.5s ease-in-out;
+  transition: clip-path 0.5s ease;
 }
 
 .forgot_box:hover {

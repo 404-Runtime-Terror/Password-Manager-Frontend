@@ -24,6 +24,9 @@ body {
 }
 
 .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--primary-color);
   color: var(--primary-font);
   font-weight: 600;

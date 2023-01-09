@@ -10,6 +10,7 @@ import { SiGooglemessages } from "react-icons/si";
 import { IoMdLock } from "react-icons/io";
 
 import { toast } from "react-toastify";
+import Loader from "../Loader";
 
 const ForgotPassword = (props) => {
   const [buttonText, setButtonText] = useState("Get OTP");
@@ -19,6 +20,8 @@ const ForgotPassword = (props) => {
 
   const [otpBoxOpen, setOtpBoxOpen] = useState(false);
   const [passwordBoxOpen, setPasswordBoxOpen] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const notifySuccessfull = (msg) => {
     toast.success(msg, {
@@ -46,6 +49,7 @@ const ForgotPassword = (props) => {
   };
 
   const SendOTP = async () => {
+    setIsLoading(true);
     if (otpBoxOpen === false) {
       if (email.length > 0) {
         const res = await axios.get(
@@ -103,6 +107,7 @@ const ForgotPassword = (props) => {
         }
       }
     }
+    setIsLoading(false);
   };
 
   const close = () => {
@@ -232,7 +237,7 @@ const ForgotPassword = (props) => {
               className={`${style.signup_btn} btn`}
               onClick={() => SendOTP()}
             >
-              {buttonText}
+              {buttonText} <Loader isOn={isLoading} width={"20px"} />
             </button>
           </div>
         </div>

@@ -16,6 +16,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 import ForgotPassword from "./forgotpassword";
 
 import { toast } from "react-toastify";
+import Loader from "../Loader";
 
 const Login = (props) => {
   // var to check is login page visable
@@ -26,6 +27,8 @@ const Login = (props) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const notifySuccessfull = () => {
     toast.success("Login Succeessfull", {
@@ -84,6 +87,7 @@ const Login = (props) => {
 
   const getLogin = async (username, password) => {
     // get request to backend to check if user is valid or not
+    setIsLoading(true);
     await axios
       .get(
         "https://password-manager-backend.up.railway.app/user/login?username=" +
@@ -104,6 +108,8 @@ const Login = (props) => {
       .catch((err) => {
         notifyUnSuccessfull("Something went wrong");
       });
+
+    setIsLoading(false);
 
     // notifySuccessfull()
   };
@@ -205,7 +211,7 @@ const Login = (props) => {
                       }
                     }}
                   >
-                    Login
+                    Login <Loader isOn={isLoading} width={"20px"} />
                   </button>
                 </div>
               </form>

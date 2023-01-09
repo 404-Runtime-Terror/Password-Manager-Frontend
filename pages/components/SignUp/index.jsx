@@ -9,6 +9,8 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { SiGmail } from "react-icons/si";
 import { FcGoogle } from "react-icons/fc";
 
+import Loader from "../Loader";
+
 import axios from "axios";
 
 // google login component
@@ -23,6 +25,8 @@ const Signup = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [termsandcondition, setTermsandcondition] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const notifySuccessfull = () => {
     toast.success("Account Created", {
@@ -51,6 +55,7 @@ const Signup = (props) => {
 
   const googleSignup = useGoogleLogin({
     // in respose google will give the user token
+
     onSuccess: async (respose) => {
       try {
         // with the help of token google will fetch the user data and save it in 'res'
@@ -77,8 +82,10 @@ const Signup = (props) => {
     },
   });
 
-  const getSignup = (username, email, password) => {
-    axios
+  const getSignup = async (username, email, password) => {
+    setIsLoading(true);
+
+    await axios
       .get(
         "https://password-manager-backend.up.railway.app/user/signup?username=" +
           username +
@@ -108,6 +115,7 @@ const Signup = (props) => {
         console.log(err);
         notifyUnSuccessfull("Something went wrong");
       });
+    setIsLoading(false);
   };
 
   return (
@@ -192,7 +200,6 @@ const Signup = (props) => {
                   className={`${style.signup_btn} btn`}
                   onClick={(e) => {
                     e.preventDefault();
-
                     if (username) {
                       if (email) {
                         if (password) {
@@ -214,7 +221,7 @@ const Signup = (props) => {
                     }
                   }}
                 >
-                  Signup
+                  Signup <Loader isOn={isLoading} width={"20px"} />
                 </button>
 
                 {/* // login button */}
