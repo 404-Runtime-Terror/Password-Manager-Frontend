@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Head from "next/head";
 import style from "./forgot.module.css";
 
 import axios from "axios";
@@ -121,6 +122,13 @@ const ForgotPassword = (props) => {
 
   return (
     <>
+      {props.isForgotPasswordOpen ? (
+        <Head>
+          <title>Password Manager | Forgot Password</title>
+        </Head>
+      ) : (
+        <></>
+      )}
       <div
         className={style.wrapper}
         style={{ zIndex: props.isForgotPasswordOpen ? 1 : 0 }}
