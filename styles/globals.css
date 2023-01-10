@@ -13,7 +13,7 @@ body {
   color: var(--textcolor);
 }
 :root {
-  --primary-color: #9000ff;
+  --primary-color: #d98162;
   --primary-color-lighter: hsl(274, 100%, 60%);
   --primary-color-darker: hsl(274, 100%, 40%);
 
