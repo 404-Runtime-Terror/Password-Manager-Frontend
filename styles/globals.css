@@ -14,8 +14,11 @@ body {
 }
 :root {
   --primary-color: #d98162;
-  --primary-color-lighter: hsl(274, 100%, 60%);
-  --primary-color-darker: hsl(274, 100%, 40%);
+  --primary-color: hsl(16, 61%, 55%);
+  /* --primary-color-lighter: hsl(274, 100%, 60%); */
+  --primary-color-lighter: hsl(16, 61%, 58%);
+  /* --primary-color-darker: hsl(274, 100%, 40%); */
+  --primary-color-darker: hsl(16, 61%, 50%);
 
   --border-radius: 10px;
   --textcolor: #fff;
