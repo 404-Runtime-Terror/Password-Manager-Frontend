@@ -1,17 +1,10 @@
-{
-  /* <div class="loadingio-spinner-rolling-4y43jn98h09"><div class="ldio-405r5a26xhf">
-<div></div>
-</div></div>
-<style type="text/css">
-
-</style> */
-}
-
 import React from "react";
 
+// use svg aniamtion for loading
 const Loading = (props) => {
   return (
     <img
+      // icon link
       src="/loading.svg"
       alt="loading"
       width={props.width}

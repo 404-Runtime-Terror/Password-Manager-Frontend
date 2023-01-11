@@ -35,11 +35,8 @@ export default function App({ Component, pageProps }) {
             property="og:description"
             content="Keep your passwords safe and organized with our password manager frontend app. Sign up now and enjoy convenient, secure password management."
           />
-          <meta
-            property="og:image"
-            content="https://password-manager-frontend.vercel.app/images/logo.png"
-          />
-          <link rel="icon" href="/blackhole.gif" />
+          <meta property="og:image" content="/logo.png" />
+          <link rel="icon" href="/logo.png" />
         </Head>
         <Component {...pageProps} />
       </GoogleOAuthProvider>
