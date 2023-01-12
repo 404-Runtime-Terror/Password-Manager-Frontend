@@ -28,31 +28,6 @@ const Signup = (props) => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const notifySuccessfull = () => {
-    toast.success("Account Created", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
-  const notifyUnSuccessfull = (msg) => {
-    toast.error(msg, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
-
   const googleSignup = useGoogleLogin({
     // in respose google will give the user token
 
@@ -81,42 +56,6 @@ const Signup = (props) => {
       }
     },
   });
-
-  const getSignup = async (username, email, password) => {
-    setIsLoading(true);
-
-    await axios
-      .get(
-        "https://password-manager-backend.up.railway.app/user/signup?username=" +
-          username +
-          "&email=" +
-          email +
-          "&password=" +
-          password
-      )
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.isSignup === true) {
-          notifySuccessfull();
-          setUsername("");
-          setEmail("");
-          setPassword("");
-        } else {
-          if (res.data.isEmailExist === true) {
-            notifyUnSuccessfull("Email Already Exist");
-          } else if (res.data.isUsernameExist === true) {
-            notifyUnSuccessfull("Username Already Exist");
-          } else {
-            notifyUnSuccessfull("Account Already Exist");
-          }
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        notifyUnSuccessfull("Something went wrong");
-      });
-    setIsLoading(false);
-  };
 
   return (
     <>
@@ -276,6 +215,67 @@ const Signup = (props) => {
       </div>
     </>
   );
+
+  function notifySuccessfull() {
+    toast.success("Account Created", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
+  function notifyUnSuccessfull(msg) {
+    toast.error(msg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
+
+  async function getSignup(username, email, password) {
+    setIsLoading(true);
+
+    await axios
+      .get(
+        "https://password-manager-backend.up.railway.app/user/signup?username=" +
+          username +
+          "&email=" +
+          email +
+          "&password=" +
+          password
+      )
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.isSignup === true) {
+          notifySuccessfull();
+          setUsername("");
+          setEmail("");
+          setPassword("");
+        } else {
+          if (res.data.isEmailExist === true) {
+            notifyUnSuccessfull("Email Already Exist");
+          } else if (res.data.isUsernameExist === true) {
+            notifyUnSuccessfull("Username Already Exist");
+          } else {
+            notifyUnSuccessfull("Account Already Exist");
+          }
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        notifyUnSuccessfull("Something went wrong");
+      });
+    setIsLoading(false);
+  }
 };
 
 export default Signup;
