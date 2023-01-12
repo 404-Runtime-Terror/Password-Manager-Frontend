@@ -32,118 +32,6 @@ const ForgotPassword = (props) => {
   // to show the loader
   const [isLoading, setIsLoading] = useState(false);
 
-  // to notify the user about the successfull or unsuccessfull operation from toast
-  const notifySuccessfull = (msg) => {
-    toast.success(msg, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
-
-  //to notify the user about the successfull or unsuccessfull operation from toast
-  const notifyUnSuccessfull = (msg) => {
-    toast.error(msg, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
-
-  // to verify the email and send the otp and reset email
-  const ResetEmail = async () => {
-    // to show the loader
-    setIsLoading(true);
-
-    // to check if the otp box is open or not
-    if (otpBoxOpen === false) {
-      // to check if the email is not empty
-      if (email.length > 0) {
-        const res = await axios.get(
-          "https://password-manager-backend.up.railway.app/user/forget?email=" +
-            email
-        );
-
-        // to check if the email is found or not
-        if (res.data.EmailSend) {
-          notifySuccessfull("OTP Send");
-          setOtpBoxOpen(true);
-          setButtonText("Verify OTP");
-        } else {
-          notifyUnSuccessfull("Email not found");
-        }
-      } else {
-        notifyUnSuccessfull("Please Enter Your Email");
-      }
-    } else {
-      // to check if the password box is open or not
-      if (passwordBoxOpen === false) {
-        // to check if the otp is not empty
-        if (otp.length > 0) {
-          const res = await axios.get(
-            "https://password-manager-backend.up.railway.app/user/verification?email=" +
-              email +
-              "&otp=" +
-              otp
-          );
-
-          // to check if the otp is correct or not
-          if (res.data.Verified) {
-            notifySuccessfull("OTP verfied");
-            setPasswordBoxOpen(true);
-            setButtonText("Set New Password");
-          } else {
-            notifyUnSuccessfull("OTP Wrong OTP");
-            setOtp("");
-          }
-        } else {
-          notifyUnSuccessfull("Please enter the OTP");
-        }
-      } else {
-        // to check if the password is not empty
-        if (password.length > 0) {
-          const res = await axios.get(
-            "https://password-manager-backend.up.railway.app/user/reset?email=" +
-              email +
-              "&password=" +
-              password
-          );
-
-          // to check if the password is reset or not
-          if (res.data.isReset) {
-            notifySuccessfull("Password Set Sucessfull");
-            close();
-          } else {
-            notifyUnSuccessfull("Something went wrong");
-          }
-        } else {
-          notifyUnSuccessfull("Please Enter the Password");
-        }
-      }
-    }
-    setIsLoading(false);
-  };
-
-  // to close ath the boxes and reset the values
-  const close = () => {
-    setOtpBoxOpen(false);
-    setPasswordBoxOpen(false);
-    setOtp("");
-    setPassword("");
-    setEmail("");
-    props.setIsForgotPasswordOpen(false);
-  };
-
   return (
     <>
       {/* // to change the title of the page */}
@@ -278,7 +166,7 @@ const ForgotPassword = (props) => {
             {/* // to show the button */}
             <button
               className={`${style.signup_btn} btn`}
-              onClick={() => SendOTP()}
+              onClick={() => ResetEmail()}
             >
               {buttonText} <Loader isOn={isLoading} width={"20px"} />
             </button>
@@ -287,6 +175,118 @@ const ForgotPassword = (props) => {
       </div>
     </>
   );
+
+  // to close ath the boxes and reset the values
+  function close() {
+    setOtpBoxOpen(false);
+    setPasswordBoxOpen(false);
+    setOtp("");
+    setPassword("");
+    setEmail("");
+    props.setIsForgotPasswordOpen(false);
+  }
+
+  // to notify the user about the successfull or unsuccessfull operation from toast
+  function notifySuccessfull(msg) {
+    toast.success(msg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
+
+  //to notify the user about the successfull or unsuccessfull operation from toast
+  function notifyUnSuccessfull(msg) {
+    toast.error(msg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
+
+  // to verify the email and send the otp and reset email
+  async function ResetEmail() {
+    // to show the loader
+    setIsLoading(true);
+
+    // to check if the otp box is open or not
+    if (otpBoxOpen === false) {
+      // to check if the email is not empty
+      if (email.length > 0) {
+        const res = await axios.get(
+          "https://password-manager-backend.up.railway.app/user/forget?email=" +
+            email
+        );
+
+        // to check if the email is found or not
+        if (res.data.EmailSend) {
+          notifySuccessfull("OTP Send");
+          setOtpBoxOpen(true);
+          setButtonText("Verify OTP");
+        } else {
+          notifyUnSuccessfull("Email not found");
+        }
+      } else {
+        notifyUnSuccessfull("Please Enter Your Email");
+      }
+    } else {
+      // to check if the password box is open or not
+      if (passwordBoxOpen === false) {
+        // to check if the otp is not empty
+        if (otp.length > 0) {
+          const res = await axios.get(
+            "https://password-manager-backend.up.railway.app/user/verification?email=" +
+              email +
+              "&otp=" +
+              otp
+          );
+
+          // to check if the otp is correct or not
+          if (res.data.Verified) {
+            notifySuccessfull("OTP verfied");
+            setPasswordBoxOpen(true);
+            setButtonText("Set New Password");
+          } else {
+            notifyUnSuccessfull("OTP Wrong OTP");
+            setOtp("");
+          }
+        } else {
+          notifyUnSuccessfull("Please enter the OTP");
+        }
+      } else {
+        // to check if the password is not empty
+        if (password.length > 0) {
+          const res = await axios.get(
+            "https://password-manager-backend.up.railway.app/user/reset?email=" +
+              email +
+              "&password=" +
+              password
+          );
+
+          // to check if the password is reset or not
+          if (res.data.isReset) {
+            notifySuccessfull("Password Set Sucessfull");
+            close();
+          } else {
+            notifyUnSuccessfull("Something went wrong");
+          }
+        } else {
+          notifyUnSuccessfull("Please Enter the Password");
+        }
+      }
+    }
+    setIsLoading(false);
+  }
 };
 
 export default ForgotPassword;

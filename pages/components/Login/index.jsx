@@ -30,34 +30,7 @@ const Login = (props) => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const notifySuccessfull = () => {
-    toast.success("Login Succeessfull", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
-  const notifyUnSuccessfull = (msg) => {
-    toast.error(msg, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
-
-  {
-    /*// function to authetiacate with google*/
-  }
+  /*// function to authetiacate with google*/
   const googleLogin = useGoogleLogin({
     // in respose google will give the user token
     onSuccess: async (respose) => {
@@ -84,35 +57,6 @@ const Login = (props) => {
       }
     },
   });
-
-  const getLogin = async (username, password) => {
-    // get request to backend to check if user is valid or not
-    setIsLoading(true);
-    await axios
-      .get(
-        "https://password-manager-backend.up.railway.app/user/login?username=" +
-          username +
-          "&password=" +
-          password
-      )
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.isLogin === true) {
-          notifySuccessfull();
-          setUsername("");
-          setPassword("");
-        } else {
-          notifyUnSuccessfull("Wrong Username or Password");
-        }
-      })
-      .catch((err) => {
-        notifyUnSuccessfull("Something went wrong");
-      });
-
-    setIsLoading(false);
-
-    // notifySuccessfull()
-  };
 
   return (
     <>
@@ -268,6 +212,60 @@ const Login = (props) => {
       </>
     </>
   );
+
+  function notifySuccessfull() {
+    toast.success("Login Succeessfull", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
+  function notifyUnSuccessfull(msg) {
+    toast.error(msg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
+
+  async function getLogin(username, password) {
+    // get request to backend to check if user is valid or not
+    setIsLoading(true);
+    await axios
+      .get(
+        "https://password-manager-backend.up.railway.app/user/login?username=" +
+          username +
+          "&password=" +
+          password
+      )
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.isLogin === true) {
+          notifySuccessfull();
+          setUsername("");
+          setPassword("");
+        } else {
+          notifyUnSuccessfull("Wrong Username or Password");
+        }
+      })
+      .catch((err) => {
+        notifyUnSuccessfull("Something went wrong");
+      });
+
+    setIsLoading(false);
+
+    // notifySuccessfull()
+  }
 };
 
 export default Login;
