@@ -1,5 +1,7 @@
 import Head from "next/head";
 import React, { useState } from "react";
+
+// import style
 import style from "./style.module.css";
 
 // import icons
@@ -9,13 +11,16 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { SiGmail } from "react-icons/si";
 import { FcGoogle } from "react-icons/fc";
 
+// loader component
 import Loader from "../Loader";
 
+// import axios for fetch data from google
 import axios from "axios";
 
 // google login component
 import { useGoogleLogin } from "@react-oauth/google";
 
+// toastify
 import { toast } from "react-toastify";
 
 const Signup = (props) => {
@@ -139,41 +144,43 @@ const Signup = (props) => {
                   className={`${style.signup_btn} btn`}
                   onClick={(e) => {
                     e.preventDefault();
+                    // if username is not empty then call getSignup function
                     if (username) {
+                      // if email is not empty then call getSignup function
                       if (email) {
+                        // if password is not empty then call getSignup function
                         if (password) {
+                          // if termsandcondition is true then call getSignup function
                           if (termsandcondition) {
+                            // call getSignup function
                             getSignup(username, email, password);
                           } else {
+                            // if termsandcondition is false then show error message
                             notifyUnSuccessfull(
                               "Please agree to terms and conditions"
                             );
                           }
                         } else {
+                          // if password is empty then show error message
                           notifyUnSuccessfull("Please enter password");
                         }
                       } else {
+                        // if email is empty then show error message
                         notifyUnSuccessfull("Please enter email");
                       }
                     } else {
+                      // if username is empty then show error message
                       notifyUnSuccessfull("Please enter username");
                     }
                   }}
                 >
                   Signup <Loader isOn={isLoading} width={"20px"} />
                 </button>
-
-                {/* // login button */}
-                {/* // onclicking this button it will redirect to login page */}
-                {/* <button
-                  className={`${style.signup_btn} btn`}
-                  onClick={() => props.setisLoginPage(true)}
-                >
-                  Login
-                </button> */}
               </div>
             </form>
           </div>
+
+          {/* // other signup options */}
           <div
             style={{
               display: "flex",
@@ -186,6 +193,8 @@ const Signup = (props) => {
             <div class={style.bar_text}>OR</div>
             <div class={style.bar} style={{ flex: 1 }}></div>
           </div>
+
+          {/* // google signup */}
           <div
             style={{
               display: "flex",
@@ -216,6 +225,7 @@ const Signup = (props) => {
     </>
   );
 
+  // function to show toast message when account is created successfully
   function notifySuccessfull() {
     toast.success("Account Created", {
       position: "top-right",
@@ -241,9 +251,12 @@ const Signup = (props) => {
     });
   }
 
+  // function to call signup api
   async function getSignup(username, email, password) {
+    // set isLoading to true
     setIsLoading(true);
 
+    // call signup api
     await axios
       .get(
         "https://password-manager-backend.up.railway.app/user/signup?username=" +
@@ -254,26 +267,33 @@ const Signup = (props) => {
           password
       )
       .then((res) => {
-        console.log(res.data);
+        // if account is created successfully then show toast message
         if (res.data.isSignup === true) {
           notifySuccessfull();
           setUsername("");
           setEmail("");
           setPassword("");
         } else {
+          // if account is not created successfully then show toast message
           if (res.data.isEmailExist === true) {
+            // if email is already exist then show toast message
             notifyUnSuccessfull("Email Already Exist");
           } else if (res.data.isUsernameExist === true) {
+            // if username is already exist then show toast message
             notifyUnSuccessfull("Username Already Exist");
           } else {
+            // if account is already exist then show toast message
             notifyUnSuccessfull("Account Already Exist");
           }
         }
       })
       .catch((err) => {
+        // if something went wrong then show toast message
         console.log(err);
         notifyUnSuccessfull("Something went wrong");
       });
+
+    // set loading to false
     setIsLoading(false);
   }
 };

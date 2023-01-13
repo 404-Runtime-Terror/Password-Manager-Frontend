@@ -1,5 +1,7 @@
 import Head from "next/head";
 import React, { useState } from "react";
+
+// import style
 import style from "./style.module.css";
 
 // import axios for fetch data from google
@@ -15,7 +17,10 @@ import { FcGoogle } from "react-icons/fc";
 import { useGoogleLogin } from "@react-oauth/google";
 import ForgotPassword from "./forgotpassword";
 
+// import toast
 import { toast } from "react-toastify";
+
+// import loder
 import Loader from "../Loader";
 
 const Login = (props) => {
@@ -213,6 +218,7 @@ const Login = (props) => {
     </>
   );
 
+  // toastify notification
   function notifySuccessfull() {
     toast.success("Login Succeessfull", {
       position: "top-right",
@@ -238,9 +244,14 @@ const Login = (props) => {
     });
   }
 
+  // login function
   async function getLogin(username, password) {
     // get request to backend to check if user is valid or not
+
+    // set loading to true so that loader will be shown
     setIsLoading(true);
+
+    // send the username and password to backend and check if user is valid or not
     await axios
       .get(
         "https://password-manager-backend.up.railway.app/user/login?username=" +
@@ -249,22 +260,23 @@ const Login = (props) => {
           password
       )
       .then((res) => {
-        console.log(res.data);
         if (res.data.isLogin === true) {
+          // if user is valid then set isLogin to true and redirect to dashboard
           notifySuccessfull();
           setUsername("");
           setPassword("");
         } else {
+          // if user is not valid then show error message
           notifyUnSuccessfull("Wrong Username or Password");
         }
       })
       .catch((err) => {
+        // if there is any error then show error message
         notifyUnSuccessfull("Something went wrong");
       });
 
+    // set loading to false so that loader will be hidden
     setIsLoading(false);
-
-    // notifySuccessfull()
   }
 };
 

@@ -1,7 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
+
+// import style
 import style from "./style.module.css";
+
+// import login and signup component
 import Login from "../../Login/index";
 import Signup from "../../SignUp/index";
+
+// import framer motion
 import { motion } from "framer-motion";
 
 // import notifaction component
@@ -10,11 +16,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 const LoginPage = () => {
   const [isLoginPage, setisLoginPage] = useState(true);
-  const vidRef = useRef();
 
   return (
     <>
       <div className={style.background}>
+        {/* // this is the head of the page */}
         <motion.div
           initial={{ y: "-100vh", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
