@@ -1,5 +1,7 @@
 import Head from "next/head";
 import React, { useState } from "react";
+
+// import style
 import style from "./style.module.css";
 
 // import icons
@@ -9,13 +11,16 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { SiGmail } from "react-icons/si";
 import { FcGoogle } from "react-icons/fc";
 
+// loader component
 import Loader from "../Loader";
 
+// import axios for fetch data from google
 import axios from "axios";
 
 // google login component
 import { useGoogleLogin } from "@react-oauth/google";
 
+// toastify
 import { toast } from "react-toastify";
 
 const Signup = (props) => {

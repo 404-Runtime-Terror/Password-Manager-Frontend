@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Head from "next/head";
+
+// import style
 import style from "./forgot.module.css";
 
+// import axios for fetch data from google
 import axios from "axios";
 
 // import icons

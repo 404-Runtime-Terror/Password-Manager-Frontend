@@ -1,5 +1,7 @@
 import Head from "next/head";
 import React, { useState } from "react";
+
+// import style
 import style from "./style.module.css";
 
 // import axios for fetch data from google
@@ -15,7 +17,10 @@ import { FcGoogle } from "react-icons/fc";
 import { useGoogleLogin } from "@react-oauth/google";
 import ForgotPassword from "./forgotpassword";
 
+// import toast
 import { toast } from "react-toastify";
+
+// import loder
 import Loader from "../Loader";
 
 const Login = (props) => {
