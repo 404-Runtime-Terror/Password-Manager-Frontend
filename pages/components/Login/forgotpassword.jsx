@@ -98,6 +98,7 @@ const ForgotPassword = (props) => {
             <p> Email is send at</p>
             {email}
             <a
+              // to change the email
               onClick={() => {
                 setOtpBoxOpen(false);
                 setPasswordBoxOpen(false);
@@ -114,6 +115,7 @@ const ForgotPassword = (props) => {
             className={style.container}
             style={{ display: otpBoxOpen ? "flex" : "none" }}
           >
+            {/* // the otp input box */}
             <div className={style.forgot_input_box} style={{ marginBottom: 5 }}>
               <SiGooglemessages
                 className={style.forgot_input_icon}
@@ -257,15 +259,18 @@ const ForgotPassword = (props) => {
             setPasswordBoxOpen(true);
             setButtonText("Set New Password");
           } else {
+            // to notify the user about the wrong otp
             notifyUnSuccessfull("OTP Wrong OTP");
             setOtp("");
           }
         } else {
+          // to notify the user about the empty otp
           notifyUnSuccessfull("Please enter the OTP");
         }
       } else {
         // to check if the password is not empty
         if (password.length > 0) {
+          // to request the server to reset the password
           const res = await axios.get(
             "https://password-manager-backend.up.railway.app/user/reset?email=" +
               email +
@@ -275,12 +280,15 @@ const ForgotPassword = (props) => {
 
           // to check if the password is reset or not
           if (res.data.isReset) {
+            // to notify the user about the successfull password reset
             notifySuccessfull("Password Set Sucessfull");
             close();
           } else {
+            // to notify the user about the unsuccessfull password reset
             notifyUnSuccessfull("Something went wrong");
           }
         } else {
+          // to notify the user about the empty password
           notifyUnSuccessfull("Please Enter the Password");
         }
       }

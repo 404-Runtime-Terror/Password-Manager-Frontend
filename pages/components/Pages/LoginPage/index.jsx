@@ -15,6 +15,7 @@ const LoginPage = () => {
   return (
     <>
       <div className={style.background}>
+        {/* // this is the head of the page */}
         <motion.div
           initial={{ y: "-100vh", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
