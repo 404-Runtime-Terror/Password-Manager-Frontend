@@ -119,10 +119,19 @@
 .email a {
   font-size: 0.9rem;
   color: var(--primary-color);
+  background-color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .email a:hover {
   text-decoration: underline;
+  background-color: whitesmoke;
+}
+
+.email a:active {
+  transform: scale(0.9);
 }

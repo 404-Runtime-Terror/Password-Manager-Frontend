@@ -138,6 +138,27 @@
   border-radius: 5px;
 }
 
+.link_box {
+  color: var(--primary-color);
+}
+
+.redirect {
+  width: 300px;
+  text-align: right;
+  text-decoration: none;
+  margin-right: 3px;
+  border-radius: 5px;
+  padding: 1px 5px;
+  font-weight: 500;
+  color: white !important;
+  border: 2px solid;
+  border-color: white !important;
+  transition: all 0.3s linear;
+}
+.redirect:hover {
+  text-decoration: underline;
+}
+
 .bar {
   background-color: #eee;
   border: 1px solid #ccc;

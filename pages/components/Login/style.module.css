@@ -95,16 +95,25 @@
   margin-bottom: 5px;
 }
 
+.link_box {
+  color: var(--primary-color);
+}
+
 .redirect {
   width: 300px;
   text-align: right;
   text-decoration: none;
-  color: white;
   margin-right: 3px;
+  border-radius: 5px;
+  padding: 1px 5px;
+  font-weight: 500;
+  color: white !important;
+  transition: all 0.3s linear;
+  border: 2px solid;
+  border-color: white !important;
 }
 .redirect:hover {
   text-decoration: underline;
-  color: var(--primary-color);
 }
 
 .button_box {
@@ -159,7 +168,6 @@
 
 @media (max-width: 550px) {
   .login_box {
-    background-color: transparent;
     backdrop-filter: none;
   }
 
