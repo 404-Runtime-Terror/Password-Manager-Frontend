@@ -138,6 +138,10 @@ const Login = (props) => {
                   href="#forgotpassword"
                   className={style.redirect}
                   onClick={() => setIsForgotPasswordOpen(true)}
+                  style={{
+                    border: "none",
+                    color: "var(--primary-color) !important",
+                  }}
                 >
                   Forgot Password
                 </a>
@@ -201,7 +205,7 @@ const Login = (props) => {
 
               {/* signup button */}
               {/* onclicking this button it will redirect to signup page */}
-              <div>
+              <div className={style.link_box}>
                 You don&apos;t have an account?{" "}
                 <a
                   onClick={() => props.setisLoginPage(false)}

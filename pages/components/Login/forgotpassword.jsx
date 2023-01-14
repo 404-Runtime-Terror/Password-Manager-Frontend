@@ -85,10 +85,7 @@ const ForgotPassword = (props) => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <label
-              htmlFor=""
-              style={{ marginLeft: "12px", color: "var(--primary-color)" }}
-            >
+            <label htmlFor="" style={{ marginLeft: "12px", color: "white" }}>
               Enter Your Email
             </label>
           </div>
@@ -134,10 +131,7 @@ const ForgotPassword = (props) => {
                 disabled={passwordBoxOpen}
               />
             </div>
-            <label
-              htmlFor=""
-              style={{ marginLeft: "12px", color: "var(--primary-color)" }}
-            >
+            <label htmlFor="" style={{ marginLeft: "12px", color: "white" }}>
               Enter Your OTP
             </label>
           </div>
@@ -159,10 +153,7 @@ const ForgotPassword = (props) => {
                 disabled={!passwordBoxOpen}
               />
             </div>
-            <label
-              htmlFor=""
-              style={{ marginLeft: "12px", color: "var(--primary-color)" }}
-            >
+            <label htmlFor="" style={{ marginLeft: "12px", color: "white" }}>
               Enter Your New Password
             </label>
           </div>

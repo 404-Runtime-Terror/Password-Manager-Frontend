@@ -210,7 +210,7 @@ const Signup = (props) => {
               <span style={{ marginLeft: 10 }}>Signup with Google</span>
             </div>
           </div>
-          <div>
+          <div className={style.link_box}>
             Do you already have account?{" "}
             <a
               onClick={() => props.setisLoginPage(true)}
