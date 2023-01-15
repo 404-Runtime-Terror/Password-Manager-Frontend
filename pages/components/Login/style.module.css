@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   height: 90vh;
   width: 500px;
   /* background-color: rgb(255, 255, 255, 0.4); */
@@ -34,6 +34,7 @@
   color: var(--primary-color);
   text-transform: capitalize;
   font-size: 2rem;
+  margin-bottom: 10px;
 }
 
 .form_box {
@@ -95,27 +96,6 @@
   margin-bottom: 5px;
 }
 
-.link_box {
-  color: var(--primary-color);
-}
-
-.redirect {
-  width: 300px;
-  text-align: right;
-  text-decoration: none;
-  margin-right: 3px;
-  border-radius: 5px;
-  padding: 1px 5px;
-  font-weight: 500;
-  color: white !important;
-  transition: all 0.3s linear;
-  border: 2px solid;
-  border-color: white !important;
-}
-.redirect:hover {
-  text-decoration: underline;
-}
-
 .button_box {
   display: flex;
   align-items: center;
@@ -164,6 +144,31 @@
 
 .other_login_icon:active {
   background: #ccc;
+}
+
+.link_box {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-top: 20px;
+  color: var(--primary-color);
+}
+
+.redirect {
+  width: fit-content;
+  text-align: right;
+  text-decoration: none;
+  margin-left: 5px;
+  border-radius: 5px;
+  padding: 1px 5px;
+  font-weight: 500;
+  color: white !important;
+  transition: all 0.3s linear;
+  border: 2px solid;
+  border-color: white !important;
+}
+.redirect:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 550px) {

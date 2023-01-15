@@ -141,6 +141,8 @@ const Login = (props) => {
                   style={{
                     border: "none",
                     color: "var(--primary-color) !important",
+                    alignSelf: "flex-end",
+                    marginRight: "18px",
                   }}
                 >
                   Forgot Password
@@ -168,7 +170,6 @@ const Login = (props) => {
                   </button>
                 </div>
               </form>
-              <br />
 
               {/* or bar */}
               <div
@@ -177,6 +178,7 @@ const Login = (props) => {
                   alignItems: "center",
                   gap: 5,
                   width: "100%",
+                  margin: "15px 0",
                 }}
               >
                 <div class={style.bar} style={{ flex: 1 }}></div>
@@ -190,7 +192,6 @@ const Login = (props) => {
                   display: "flex",
                   alignItems: "center",
                   flexDirection: "column",
-                  marginTop: 10,
                   gap: 10,
                   width: "100%",
                 }}
@@ -201,7 +202,6 @@ const Login = (props) => {
                   <span style={{ marginLeft: 10 }}>Login with Google</span>
                 </div>
               </div>
-              <br />
 
               {/* signup button */}
               {/* onclicking this button it will redirect to signup page */}
@@ -210,7 +210,7 @@ const Login = (props) => {
                 <a
                   onClick={() => props.setisLoginPage(false)}
                   className={style.redirect}
-                  style={{ cursor: "pointer", color: "var(--primary-color)" }}
+                  style={{ cursor: "pointer" }}
                 >
                   Signup
                 </a>
