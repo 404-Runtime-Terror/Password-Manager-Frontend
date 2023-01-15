@@ -209,8 +209,8 @@ const Login = (props) => {
                 You don&apos;t have an account?{" "}
                 <a
                   onClick={() => props.setisLoginPage(false)}
-                  className={style.redirect}
-                  style={{ cursor: "pointer" }}
+                  style={{ marginLeft: 5 }}
+                  className="link_btn"
                 >
                   Signup
                 </a>

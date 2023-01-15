@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 
 // import style
@@ -12,6 +12,7 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { SiGmail } from "react-icons/si";
 import { SiGooglemessages } from "react-icons/si";
 import { IoMdLock } from "react-icons/io";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 // import toast
 import { toast } from "react-toastify";
@@ -34,6 +35,22 @@ const ForgotPassword = (props) => {
 
   // to show the loader
   const [isLoading, setIsLoading] = useState(false);
+
+  const [timer, setTimer] = useState(60 * 5);
+  const [isOTPResent, setIsOTPResent] = useState(false);
+
+  const [ishideOTP, setHideOTP] = useState(true);
+  const [ishidePassword, setHidePassword] = useState(true);
+
+  useEffect(() => {
+    if (timer > 0) {
+      setTimeout(() => {
+        setTimer(timer - 1);
+      }, 1000);
+    } else {
+      setTimer(0);
+    }
+  }, [timer]);
 
   return (
     <>
@@ -95,6 +112,17 @@ const ForgotPassword = (props) => {
             className={style.email}
             style={{ display: otpBoxOpen ? "flex" : "none" }}
           >
+            <div
+              className={style.timer}
+              style={{
+                color: "var(--primary-color)",
+                textDecoration: "underline",
+                cursor: "pointer",
+                background: "rgba(247, 236, 255, 0.4)",
+                padding: "0px 10px",
+                borderRadius: "5px",
+              }}
+            ></div>
             <p> Email is send at</p>
             {email}
             <a
@@ -105,6 +133,7 @@ const ForgotPassword = (props) => {
                 setOtp("");
                 setPassword("");
               }}
+              className="link_btn"
             >
               change
             </a>
@@ -121,8 +150,25 @@ const ForgotPassword = (props) => {
                 className={style.forgot_input_icon}
                 size={"23px"}
               />
+              {
+                // if isPasswordVisible is true then show eye icon else show eye-invisible icon
+                ishideOTP ? (
+                  <AiFillEyeInvisible
+                    className={`${style.forgot_input_icon} ${style.eye_icon}`}
+                    size={"25px"}
+                    onClick={() => setHideOTP(!ishideOTP)}
+                  />
+                ) : (
+                  <AiFillEye
+                    className={`${style.forgot_input_icon} ${style.eye_icon}`}
+                    size={"25px"}
+                    onClick={() => setHideOTP(!ishideOTP)}
+                  />
+                )
+              }
+
               <input
-                type="text"
+                type={ishideOTP ? "password" : "text"}
                 placeholder="OTP"
                 typeof="number"
                 className={style.forgot_input}
@@ -131,9 +177,38 @@ const ForgotPassword = (props) => {
                 disabled={passwordBoxOpen}
               />
             </div>
-            <label htmlFor="" style={{ marginLeft: "12px", color: "white" }}>
-              Enter Your OTP
-            </label>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "100%",
+                marginLeft: "12px",
+              }}
+            >
+              <div>
+                {
+                  // to show the timer
+
+                  timer > 0 ? (
+                    <p>
+                      OTP Expired in :{" "}
+                      <span>
+                        {" "}
+                        {Math.floor(timer / 60)}:{timer % 60}
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="link_btn" onClick={resentOTP}>
+                      {isOTPResent ? (
+                        <Loader isOn={true} width={"15px"} />
+                      ) : (
+                        <span>Resend OTP</span>
+                      )}
+                    </p>
+                  )
+                }
+              </div>
+            </div>
           </div>
 
           {/* // to show the password box */}
@@ -144,8 +219,24 @@ const ForgotPassword = (props) => {
           >
             <div className={style.forgot_input_box} style={{ marginBottom: 5 }}>
               <IoMdLock className={style.forgot_input_icon} size={"25px"} />
+              {
+                // if isPasswordVisible is true then show eye icon else show eye-invisible icon
+                ishidePassword ? (
+                  <AiFillEyeInvisible
+                    className={`${style.forgot_input_icon} ${style.eye_icon}`}
+                    size={"25px"}
+                    onClick={() => setHidePassword(!ishidePassword)}
+                  />
+                ) : (
+                  <AiFillEye
+                    className={`${style.forgot_input_icon} ${style.eye_icon}`}
+                    size={"25px"}
+                    onClick={() => setHidePassword(!ishidePassword)}
+                  />
+                )
+              }
               <input
-                type="password"
+                type={ishidePassword ? "password" : "text"}
                 placeholder="New Password"
                 className={style.forgot_input}
                 value={password}
@@ -288,6 +379,32 @@ const ForgotPassword = (props) => {
       }
     }
     setIsLoading(false);
+  }
+
+  async function resentOTP() {
+    setIsOTPResent(true);
+    setOtp("");
+    if (email.length > 0) {
+      const res = await axios.get(
+        "https://password-manager-backend.up.railway.app/user/forget?email=" +
+          email
+      );
+
+      // to check if the email is found or not
+      if (res.data.EmailSend) {
+        notifySuccessfull("OTP Send");
+        setOtpBoxOpen(true);
+        setButtonText("Verify OTP");
+        setPasswordBoxOpen(false);
+        setTimer(60 * 5);
+        setIsOTPResent(false);
+      } else {
+        notifyUnSuccessfull("Email not found");
+      }
+    } else {
+      notifyUnSuccessfull("Please Enter Your Email");
+    }
+    setIsOTPResent(false);
   }
 };
 
