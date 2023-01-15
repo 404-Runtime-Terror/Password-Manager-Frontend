@@ -187,6 +187,7 @@ const Signup = (props) => {
               alignItems: "center",
               gap: 5,
               width: "60%",
+              margin: "15px 0",
             }}
           >
             <div class={style.bar} style={{ flex: 1 }}></div>
@@ -200,7 +201,6 @@ const Signup = (props) => {
               display: "flex",
               alignItems: "center",
               flexDirection: "column",
-              marginTop: 0,
               gap: 10,
               width: "100%",
             }}
@@ -210,12 +210,13 @@ const Signup = (props) => {
               <span style={{ marginLeft: 10 }}>Signup with Google</span>
             </div>
           </div>
+
           <div className={style.link_box}>
             Do you already have account?{" "}
             <a
               onClick={() => props.setisLoginPage(true)}
-              className={style.redirect}
-              style={{ cursor: "pointer", color: "var(--primary-color)" }}
+              style={{ marginLeft: 5 }}
+              className="link_btn"
             >
               Login
             </a>
