@@ -204,6 +204,15 @@
   .other_signup_icon {
     width: 70%;
   }
+
+  .link_box {
+    color: white;
+  }
+  .redirect {
+    color: var(--primary-color) !important;
+    text-decoration: underline;
+    border: none;
+  }
 }
 
 @media (max-width: 380px) {

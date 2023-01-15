@@ -169,14 +169,20 @@
 @media (max-width: 550px) {
   .login_box {
     backdrop-filter: none;
+    background-color: transparent;
   }
 
   .login_background {
     width: 100%;
   }
 
+  .link_box {
+    color: white;
+  }
   .redirect {
-    /* width: 200px; */
+    color: var(--primary-color) !important;
+    border: none;
+    text-decoration: underline;
   }
 }
 
