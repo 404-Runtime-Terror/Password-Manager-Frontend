@@ -269,6 +269,7 @@ const Login = (props) => {
           notifySuccessfull();
           setUsername("");
           setPassword("");
+          // props.setUser(res.data.userID);
         } else {
           // if user is not valid then show error message
           notifyUnSuccessfull("Wrong Username or Password");
