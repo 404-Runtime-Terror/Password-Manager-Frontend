@@ -18,7 +18,7 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { toast } from "react-toastify";
 
 // import loder
-import Loader from "../Loader";
+import Loader from "../../../../Loader";
 
 const ForgotPassword = (props) => {
   // to change the text of button

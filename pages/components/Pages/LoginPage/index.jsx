@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import style from "./style.module.css";
 
 // import login and signup component
-import Login from "../../Login/index";
-import Signup from "../../SignUp/index";
+import Login from "./Login/index";
+import Signup from "./SignUp/index";
 
 // import framer motion
 import { motion } from "framer-motion";

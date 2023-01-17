@@ -15,13 +15,13 @@ import { FcGoogle } from "react-icons/fc";
 
 // google login component
 import { useGoogleLogin } from "@react-oauth/google";
-import ForgotPassword from "./forgotpassword";
+import ForgotPassword from "./ForgotPassword/forgotpassword";
 
 // import toast
 import { toast } from "react-toastify";
 
 // import loder
-import Loader from "../Loader";
+import Loader from "../../../Loader";
 
 const Login = (props) => {
   // var to check is login page visable

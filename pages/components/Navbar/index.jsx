@@ -57,30 +57,6 @@ const Navbar = () => {
             <AiFillDelete size="1.5rem" className={style.Navbar_Menu_icon} />
             <span>trash</span>
           </li>
-          <li>
-            <AiFillDelete size="1.5rem" className={style.Navbar_Menu_icon} />
-            <span>trash</span>
-          </li>
-          <li>
-            <AiFillDelete size="1.5rem" className={style.Navbar_Menu_icon} />
-            <span>trash</span>
-          </li>
-          <li>
-            <AiFillDelete size="1.5rem" className={style.Navbar_Menu_icon} />
-            <span>trash</span>
-          </li>
-          <li>
-            <AiFillDelete size="1.5rem" className={style.Navbar_Menu_icon} />
-            <span>trash</span>
-          </li>
-          <li>
-            <AiFillDelete size="1.5rem" className={style.Navbar_Menu_icon} />
-            <span>trash</span>
-          </li>
-          <li>
-            <AiFillDelete size="1.5rem" className={style.Navbar_Menu_icon} />
-            <span>trash</span>
-          </li>
         </ul>
 
         <div className={style.user}>

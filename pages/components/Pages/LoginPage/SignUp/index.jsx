@@ -12,7 +12,7 @@ import { SiGmail } from "react-icons/si";
 import { FcGoogle } from "react-icons/fc";
 
 // loader component
-import Loader from "../Loader";
+import Loader from "../../../Loader";
 
 // import axios for fetch data from google
 import axios from "axios";
