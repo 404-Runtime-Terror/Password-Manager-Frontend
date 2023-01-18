@@ -3,12 +3,12 @@ import React from "react";
 // import style module
 import styles from "./style.module.css";
 
-const Dashboard = () => {
+const DashboardPage = (props) => {
   return (
     <>
-      <div className={styles.Dashboard}>Dashboard</div>
+      <div className={styles.Dashboard}>{props.userID}</div>
     </>
   );
 };
 
-export default Dashboard;
+export default DashboardPage;

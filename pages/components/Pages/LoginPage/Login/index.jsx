@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React, { useState } from "react";
+import Router from "next/router";
 
 // import style
 import style from "./style.module.css";
@@ -22,6 +23,7 @@ import { toast } from "react-toastify";
 
 // import loder
 import Loader from "../../../Loader";
+import react from "react";
 
 const Login = (props) => {
   // var to check is login page visable
@@ -62,6 +64,10 @@ const Login = (props) => {
       }
     },
   });
+
+  React.useEffect(() => {
+    props.setUserID(null);
+  }, []);
 
   return (
     <>
@@ -264,12 +270,16 @@ const Login = (props) => {
           password
       )
       .then((res) => {
+        console.log(res.data);
         if (res.data.isLogin === true) {
           // if user is valid then set isLogin to true and redirect to dashboard
           notifySuccessfull();
           setUsername("");
           setPassword("");
-          // props.setUser(res.data.userID);
+          props.setUserID(res.data.userID);
+          Router.push({
+            pathname: "/dashboard",
+          });
         } else {
           // if user is not valid then show error message
           notifyUnSuccessfull("Wrong Username or Password");

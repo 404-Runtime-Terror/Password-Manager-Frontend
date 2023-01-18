@@ -13,9 +13,10 @@
   top: 0;
   left: 0;
   width: 18%;
-  height: 95%;
+  height: 85%;
   border-radius: var(--border-radius);
   z-index: 100;
+  border: 2px solid var(--primary-color);
   border-right: solid 10px var(--primary-color);
 }
 
@@ -25,7 +26,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 20px 0;
+  margin: 10px 0 20px 0;
   border-radius: var(--border-radius);
 }
 
@@ -46,7 +47,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  height: 85%;
   width: 100%;
   list-style: none;
   overflow: scroll;
@@ -84,14 +85,18 @@
 }
 
 .user {
+  position: absolute;
+  bottom: -12%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 95%;
+  height: 25%;
   padding: 10px 0;
   margin-right: 10px;
   border-radius: var(--border-radius);
   background-color: rgba(247, 236, 255, 0.4);
   backdrop-filter: blur(10px);
+  border: solid 2px white;
 }

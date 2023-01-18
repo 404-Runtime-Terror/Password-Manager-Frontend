@@ -1,8 +1,8 @@
 import React from "react";
 import style from "./style.module.css";
+import Router from "next/router";
 
 // import icons
-import { BsFillShieldLockFill } from "react-icons/bs";
 import { IoMdLock } from "react-icons/io";
 import { RxCounterClockwiseClock } from "react-icons/rx";
 import { BsStarFill } from "react-icons/bs";
@@ -15,10 +15,10 @@ const Navbar = () => {
   return (
     <>
       <nav className={style.Navbar_Wrapper}>
-        <div className={style.Logo}>
+        {/* <div className={style.Logo}>
           <BsFillShieldLockFill className={style.Logo_icon} />
           <span>Password Mang</span>
-        </div>
+        </div> */}
 
         <ul className={style.Navbar_Menu}>
           <li>
@@ -61,7 +61,14 @@ const Navbar = () => {
 
         <div className={style.user}>
           User
-          <BiLogOut size={"2rem"} />
+          <BiLogOut
+            size={"2rem"}
+            onClick={() => {
+              Router.push({
+                pathname: "/",
+              });
+            }}
+          />
         </div>
       </nav>
     </>
