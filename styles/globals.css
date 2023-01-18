@@ -81,6 +81,8 @@ body {
   color: black !important;
   transition: all 0.3s linear;
 }
+.backgroud {
+}
 
 .dashboard {
   background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701805895.jpg");
@@ -88,10 +90,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  /* aspect-ratio: 16/9; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

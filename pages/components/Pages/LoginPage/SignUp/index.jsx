@@ -76,6 +76,7 @@ const Signup = (props) => {
           <div className={style.form_box}>
             <form className={style.signup_form}>
               {/* // username input */}
+
               <div className={style.signup_input_box}>
                 <FaUserAlt className={style.signup_input_icon} size={"23px"} />
                 <input
@@ -268,6 +269,7 @@ const Signup = (props) => {
           password
       )
       .then((res) => {
+        console.log(res.data);
         // if account is created successfully then show toast message
         if (res.data.isSignup === true) {
           notifySuccessfull();
