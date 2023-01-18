@@ -15,15 +15,17 @@
 */
 
 // Import the components you want to render on this page
+import React from "react";
 import LoginPage from "./components/Pages/LoginPage";
-import Navbar from "./components/Navbar";
 
 export default function Home() {
+  // This is a React hook that allows you to store data in the component's state
+  const [user, setUser] = React.useState(null);
+
   return (
     <>
       <main>
-        <Navbar />
-        <LoginPage />
+        <LoginPage setUserData={setUser} />
       </main>
     </>
   );

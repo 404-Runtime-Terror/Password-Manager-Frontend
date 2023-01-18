@@ -1,0 +1,97 @@
+.Navbar_Wrapper {
+  position: fixed;
+  background-color: rgba(247, 236, 255, 0.4);
+  backdrop-filter: blur(10px);
+  color: var(--textcolor);
+  padding: 10px 0px;
+  padding-left: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 18%;
+  height: 95%;
+  border-radius: var(--border-radius);
+  z-index: 100;
+  border-right: solid 10px var(--primary-color);
+}
+
+.Logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+  border-radius: var(--border-radius);
+}
+
+.Logo_icon {
+  object-fit: contain;
+  margin-right: 10px;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.Logo span {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.Navbar_Menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  overflow: scroll;
+}
+
+.Navbar_Menu li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px 0 0 5px;
+  transition: 0.2s ease-in-out;
+}
+
+.Navbar_Menu li:hover {
+  background-color: var(--primary-color);
+}
+
+.Navbar_Menu li:active {
+  background-color: var(--primary-color-darker);
+  outline: none;
+}
+
+.Navbar_Menu li span {
+  margin-left: 10px;
+}
+
+.Navbar_Menu_icon {
+  font-size: 1.2rem;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  margin-right: 10px;
+  border-radius: var(--border-radius);
+  background-color: rgba(247, 236, 255, 0.4);
+  backdrop-filter: blur(10px);
+}

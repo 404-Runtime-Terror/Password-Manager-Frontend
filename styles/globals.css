@@ -8,6 +8,7 @@ body {
   box-sizing: border-box;
 }
 body {
+  position: relative;
   background-color: #282828;
   font-family: var(--primary-font);
   color: var(--textcolor);
@@ -79,4 +80,16 @@ body {
   background-color: #ccc;
   color: black !important;
   transition: all 0.3s linear;
+}
+.backgroud {
+}
+
+.dashboard {
+  background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701805895.jpg");
+  /* Background: https://wallpaper-mania.com/background/sci-fi-wallpapers/4k-interstellar/ */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
 }

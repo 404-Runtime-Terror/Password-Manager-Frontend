@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import style from "./style.module.css";
 
 // import login and signup component
-import Login from "../../Login/index";
-import Signup from "../../SignUp/index";
+import Login from "./Login/index";
+import Signup from "./SignUp/index";
 
 // import framer motion
 import { motion } from "framer-motion";
@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const LoginPage = () => {
+const LoginPage = (props) => {
   const [isLoginPage, setisLoginPage] = useState(true);
 
   return (
@@ -38,7 +38,10 @@ const LoginPage = () => {
           >
             {/* if else statement: if isLoginPage is true then show login component else show signup component */}
             {isLoginPage ? (
-              <Login setisLoginPage={setisLoginPage} />
+              <Login
+                setisLoginPage={setisLoginPage}
+                setUser={props.setUserData}
+              />
             ) : (
               <Signup setisLoginPage={setisLoginPage} />
             )}
