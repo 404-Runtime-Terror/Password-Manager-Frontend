@@ -1,0 +1,30 @@
+
+.app_list{
+    height: 95%;
+    width: 18%;
+    position: fixed;
+    z-index: 1;
+    top: 1.7%;
+    left: 20%;
+    background-color: rgba(247, 236, 255, 0.4);
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-radius: var(--border-radius);
+    font-family: var(--primary-font);
+}
+.app_list a{
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #eff3efb5;
+    display: block;
+}
+
+.app_list a:hover{
+    color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px){
+    .app_list a {font-size: 18px;}
+}
+    
