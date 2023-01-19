@@ -14,17 +14,18 @@ import { FaUserAlt } from "react-icons/fa";
 import { IoIosSettings } from "react-icons/io";
 import { BsFillShieldLockFill } from "react-icons/bs";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <>
+      <MobileNavbar />
       <nav className={style.Navbar_Wrapper}>
         <div className={style.Logo}>
           <BsFillShieldLockFill className={style.Logo_icon} />
-          <span>Password Mang</span>
+          <span>Password Manager</span>
         </div>
 
         <ul className={style.Navbar_Menu}>
-          <li>
+          <li className={style.active}>
             <IoMdLock size="1.5rem" className={style.Navbar_Menu_icon} />{" "}
             <span>all passwords</span>
           </li>
@@ -43,6 +44,7 @@ const Navbar = () => {
             <FaLayerGroup />
             <span>groups</span>
           </li>
+
           <li>
             <FaLayerGroup className={style.Navbar_Menu_icon} />
             <span>groups</span>
@@ -67,7 +69,9 @@ const Navbar = () => {
             <span>
               <FaUserAlt size={"1rem"} />
             </span>{" "}
-            <span>User</span>
+            <div className={style.userName}>
+              {props.userData.UserInfo.userName}
+            </div>
           </div>
           <div className={style.user_options}>
             <IoIosSettings
@@ -85,6 +89,35 @@ const Navbar = () => {
             />
           </div>
         </div>
+      </nav>
+    </>
+  );
+};
+
+const MobileNavbar = () => {
+  return (
+    <>
+      <nav className={style.MobileNavbar_Wrapper}>
+        <ul className={style.Navbar_Menu}>
+          <li className={style.active}>
+            <IoMdLock size="1.5rem" className={style.Navbar_Menu_icon} />
+          </li>
+          <li>
+            <RxCounterClockwiseClock
+              size="1.5rem"
+              className={style.Navbar_Menu_icon}
+            />
+          </li>
+          <li>
+            <BsStarFill size="1.3rem" className={style.Navbar_Menu_icon} />
+          </li>
+          <li>
+            <FaArchive className={style.Navbar_Menu_icon} />
+          </li>
+          <li>
+            <AiFillDelete size="1.5rem" className={style.Navbar_Menu_icon} />
+          </li>
+        </ul>
       </nav>
     </>
   );

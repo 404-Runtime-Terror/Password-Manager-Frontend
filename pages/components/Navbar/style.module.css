@@ -3,8 +3,7 @@
   background-color: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
   color: var(--textcolor);
-  padding: 10px;
-  padding-left: 10px;
+  padding: 10px 5px;
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -12,7 +11,7 @@
   align-items: center;
   top: 0;
   left: 0;
-  width: 18%;
+  width: 250px;
   height: 95%;
   border-radius: var(--border-radius);
   z-index: 100;
@@ -43,10 +42,11 @@
 .Navbar_Menu {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 85%;
   width: 100%;
+  padding: 0 10px;
   list-style: none;
   overflow: scroll;
 }
@@ -56,7 +56,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  margin: 8px 0;
+  margin: 8px 0px;
   text-transform: capitalize;
   font-size: 1.2rem;
   cursor: pointer;
@@ -77,6 +77,12 @@
   color: rgba(255, 255, 255, 1);
 }
 
+.Navbar_Menu .active {
+  background-color: rgb(var(--primary-color-rgb), 0.6);
+  outline: none;
+  color: rgba(255, 255, 255, 1);
+}
+
 .Navbar_Menu li span {
   margin-left: 10px;
 }
@@ -92,7 +98,6 @@
   align-items: center;
   width: 95%;
   padding: 10px;
-  margin-right: 10px;
   border-radius: var(--border-radius);
   background-color: rgba(247, 236, 255, 0.4);
   backdrop-filter: blur(10px);
@@ -108,7 +113,7 @@
 }
 
 .user_info span {
-  margin-left: 5px;
+  margin-right: 10px;
   font-size: 1.2rem;
 }
 .user_info span:first-child {
@@ -121,6 +126,17 @@
   background-color: var(--primary-color);
   margin-bottom: -3px;
   padding: 5px;
+}
+
+.userName {
+  width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.userName:hover {
+  text-decoration: underline;
 }
 
 .user_options {
@@ -147,4 +163,33 @@
 
 .settings:is(:active, :focus) {
   transform: rotate(90deg);
+}
+
+.MobileNavbar_Wrapper {
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  width: 300px;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: var(--border-radius);
+}
+
+@media screen and (max-width: 768px) {
+  .MobileNavbar_Wrapper {
+    display: flex;
+  }
+
+  .Navbar_Wrapper {
+    display: none;
+  }
+  .Navbar_Menu {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .Navbar_Menu li {
+    width: fit-content;
+  }
 }
