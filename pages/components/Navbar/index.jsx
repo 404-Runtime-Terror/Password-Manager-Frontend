@@ -10,15 +10,18 @@ import { FaLayerGroup } from "react-icons/fa";
 import { FaArchive } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
+import { FaUserAlt } from "react-icons/fa";
+import { IoIosSettings } from "react-icons/io";
+import { BsFillShieldLockFill } from "react-icons/bs";
 
 const Navbar = () => {
   return (
     <>
       <nav className={style.Navbar_Wrapper}>
-        {/* <div className={style.Logo}>
+        <div className={style.Logo}>
           <BsFillShieldLockFill className={style.Logo_icon} />
           <span>Password Mang</span>
-        </div> */}
+        </div>
 
         <ul className={style.Navbar_Menu}>
           <li>
@@ -60,15 +63,27 @@ const Navbar = () => {
         </ul>
 
         <div className={style.user}>
-          User
-          <BiLogOut
-            size={"2rem"}
-            onClick={() => {
-              Router.push({
-                pathname: "/",
-              });
-            }}
-          />
+          <div className={style.user_info}>
+            <span>
+              <FaUserAlt size={"1rem"} />
+            </span>{" "}
+            <span>User</span>
+          </div>
+          <div className={style.user_options}>
+            <IoIosSettings
+              size={"1.5rem"}
+              className={`${style.settings} ${style.user_options_icons}`}
+            />
+            <BiLogOut
+              size={"1.5rem"}
+              className={` ${style.user_options_icons}`}
+              onClick={() => {
+                Router.push({
+                  pathname: "/",
+                });
+              }}
+            />
+          </div>
         </div>
       </nav>
     </>
