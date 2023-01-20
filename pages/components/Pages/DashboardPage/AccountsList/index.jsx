@@ -2,10 +2,11 @@ import React from "react";
 import style from "./style.module.css";
 // import icons
 import { BsStarFill } from "react-icons/bs";
-import { FaArrowCircleRight } from "react-icons/fa";
+import { MdArrowForwardIos } from "react-icons/md";
 
 const Element = ["Twitter", "Facebook", "Instagram", "Netflix", "Prime"];
 const Accounts_list = () => {
+  
   return (
     <>
       <div className={style.app_list}>
@@ -16,17 +17,14 @@ const Accounts_list = () => {
                 <div className={style.favLogo}>
                   <BsStarFill />
                 </div>
-                {e}
+                <span className={style.AccountItem}>{e}</span>
                 <div className={style.arrow}>
-                  <FaArrowCircleRight />
+                  <MdArrowForwardIos />
                 </div>
               </div>
             </>
           );
         })}
-        {/* <a href="#Facebook">Facebook</a> */}
-        {/* <a href="#Twitter">Twitter</a> */}
-        {/* <a href="#Instagram">Instagram</a> */}
       </div>
     </>
   );
