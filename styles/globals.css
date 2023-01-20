@@ -8,14 +8,18 @@ body {
   box-sizing: border-box;
 }
 body {
+  position: relative;
   background-color: #282828;
   font-family: var(--primary-font);
   color: var(--textcolor);
 }
 :root {
-  --primary-color: #9000ff;
-  --primary-color-lighter: hsl(274, 100%, 60%);
-  --primary-color-darker: hsl(274, 100%, 40%);
+  --primary-color: hsl(16, 61%, 55%);
+  --primary-color-rgb: 210, 108, 70;
+  /* --primary-color-lighter: hsl(274, 100%, 60%); */
+  --primary-color-lighter: hsl(16, 61%, 58%);
+  /* --primary-color-darker: hsl(274, 100%, 40%); */
+  --primary-color-darker: hsl(16, 61%, 50%);
 
   --border-radius: 10px;
   --textcolor: #fff;
@@ -24,6 +28,9 @@ body {
 }
 
 .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--primary-color);
   color: var(--primary-font);
   font-weight: 600;
@@ -46,4 +53,40 @@ body {
   background-color: var(--primary-color-darker);
   border-color: var(--primary-color-darker);
   outline: none;
+}
+
+.link_btn {
+  width: fit-content;
+  text-align: right;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 1px 5px;
+  font-weight: 500;
+  color: white !important;
+  transition: all 0.3s linear;
+  border: 2px solid;
+  border-color: white !important;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.link_btn:hover {
+  background-color: white;
+  color: black !important;
+  transition: all 0.3s linear;
+}
+
+.link_btn:active {
+  background-color: #ccc;
+  color: black !important;
+  transition: all 0.3s linear;
+}
+
+.dashboard {
+  background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701805895.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
 }

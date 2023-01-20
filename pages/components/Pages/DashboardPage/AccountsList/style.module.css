@@ -1,0 +1,56 @@
+
+.app_list{
+    height: 95%;
+    width: 18%;
+    position: fixed;
+    z-index: 1;
+    top: 1.7%;
+    left: 19%;
+    background-color: rgba(247, 236, 255, 0.4);
+    overflow-x: hidden;
+    padding: 20px 5px;
+    border-radius: var(--border-radius);
+    font-family: var(--primary-font);
+    font-size: 1.2rem;
+    backdrop-filter: blur(10px);
+}
+.app_list a{
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #eff3efb5;
+    display: block;
+}
+
+.app_list a:hover{
+    color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px){
+    .app_list a {font-size: 18px;}
+}
+
+.Accounts{
+    /* background-color: rgba(247, 236, 255, 0.4); */
+    display: flex;
+    padding: 13px 17px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: var(--border-radius);
+    font-family: var(--primary-font);
+    /* overflow text */
+    text-overflow: ellipsis;
+    
+}
+.Accounts:hover{
+    background-color: rgba(var(--primary-color-rgb),0.6);
+    cursor: pointer;
+}
+.favLogo{
+    background-color: rgb(12, 12, 12);
+    height: 25px;
+    margin-right: 30px;
+    width: 25px;
+}
+    

@@ -1,33 +1,26 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
+
+// import style
 import style from "./style.module.css";
-import Login from "../../Login/index";
-import Signup from "../../SignUp/index";
+
+// import login and signup component
+import Login from "./Login/index";
+import Signup from "./SignUp/index";
+
+// import framer motion
 import { motion } from "framer-motion";
 
 // import notifaction component
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const LoginPage = () => {
+const LoginPage = (props) => {
   const [isLoginPage, setisLoginPage] = useState(true);
-  const vidRef = useRef();
-
-  useEffect(() => {
-    vidRef.current.play();
-  }, []);
 
   return (
     <>
-      <div>
-        <video
-          className={style.backgroundvideo}
-          autoPlay
-          loop
-          muted
-          ref={vidRef}
-        >
-          <source src="/blackhole.mp4" type="video/mp4" />
-        </video>
+      <div className={style.background}>
+        {/* // this is the head of the page */}
         <motion.div
           initial={{ y: "-100vh", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -45,7 +38,10 @@ const LoginPage = () => {
           >
             {/* if else statement: if isLoginPage is true then show login component else show signup component */}
             {isLoginPage ? (
-              <Login setisLoginPage={setisLoginPage} />
+              <Login
+                setisLoginPage={setisLoginPage}
+                setUserID={props.setUserID}
+              />
             ) : (
               <Signup setisLoginPage={setisLoginPage} />
             )}
