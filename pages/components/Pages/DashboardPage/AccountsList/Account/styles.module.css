@@ -1,0 +1,14 @@
+.Account{
+    width:300px;
+    height:min-content;
+    border-radius:5px;
+    color:black;
+    background-color:rgba(186, 214, 214, 0.566);
+}
+
+.field{
+    width:auto;
+    height:30px;
+    border-radius: 5px;
+    color: rgba(247,236,147,0.4);
+}
