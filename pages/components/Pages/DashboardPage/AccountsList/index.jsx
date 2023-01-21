@@ -9,8 +9,8 @@ const Element = ["Twitter", "Facebook", "Instagram", "Netflix", "Prime"];
 const Accounts_list = () => {
   return (
     <>
-      {/* App list container */}
-      <div className={style.app_list}>
+      {/* Account list container */}
+      <div className={style.Accountlist}>
         {/* Map Function to create accounts */}
         {Element.map((e, key) => {
           return (

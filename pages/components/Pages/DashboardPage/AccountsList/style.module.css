@@ -1,4 +1,4 @@
-.app_list{
+.Accountlist{
     height: 95%;
     width: 18%;
     position: fixed;
@@ -23,7 +23,7 @@
     margin: 10px 5px;
     padding: 5px 10px;
     text-transform: capitalize;
-    border-radius: var(--border-radius);
+    border-radius: 5px;
     font-family: var(--primary-font);
     /* overflow text */
     text-overflow: ellipsis;
@@ -70,20 +70,3 @@
  .Accounts:hover > .arrowInfo{
     opacity: 1;
  } 
-                                                            /* CSS to be reviewed */
-  /* .app_list a{
-      padding: 6px 8px 6px 16px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #eff3efb5;
-      display: block;
-  } */
-  
-  /* .app_list a:hover{
-      color: #f1f1f1;
-  } */
-  /* 
-  @media screen and (max-height: 450px){
-      .app_list a {font-size: 18px;}
-  } */
-                                                              /* ****************** */
