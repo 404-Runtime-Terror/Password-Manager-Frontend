@@ -2,9 +2,15 @@ import React from "react";
 import style from "./style.module.css";
 // import icons
 import { BsStarFill } from "react-icons/bs";
-import { FaArrowCircleRight } from "react-icons/fa";
+import { MdArrowForwardIos } from "react-icons/md";
 
-const Element = ["Twitter", "Facebook", "Instagram", "Netflix", "Prime"];
+const Element = [
+  "Twitter",
+  "Facebookjksdhrkjwgfjsdbfs",
+  "Instagram",
+  "Netflix",
+  "Prime",
+];
 const Accounts_list = () => {
   return (
     <>
@@ -16,17 +22,27 @@ const Accounts_list = () => {
                 <div className={style.favLogo}>
                   <BsStarFill />
                 </div>
-                {e}
+                <span
+                  className={style.AccountItem}
+                  style={{
+                    textOverflow: "ellipsis",
+                    overflow: "hidden",
+                    width: "50%",
+                  }}
+                >
+                  {e}
+                </span>
                 <div className={style.arrow}>
-                  <FaArrowCircleRight />
+                  <div className={style.moreIn}>
+                    <span className={style.AccountItem}>{key}</span>
+
+                    <MdArrowForwardIos size={"1.3rem"} />
+                  </div>
                 </div>
               </div>
             </>
           );
         })}
-        {/* <a href="#Facebook">Facebook</a> */}
-        {/* <a href="#Twitter">Twitter</a> */}
-        {/* <a href="#Instagram">Instagram</a> */}
       </div>
     </>
   );

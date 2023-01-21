@@ -20,7 +20,7 @@ body {
   --primary-color-lighter: hsl(16, 61%, 58%);
   /* --primary-color-darker: hsl(274, 100%, 40%); */
   --primary-color-darker: hsl(16, 61%, 50%);
-
+  --dashboard-color:  rgba(247, 236, 255, 0.4);
   --border-radius: 10px;
   --textcolor: #fff;
   --btn-font-size: 16px;

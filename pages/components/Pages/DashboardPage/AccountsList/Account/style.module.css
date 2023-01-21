@@ -1,0 +1,28 @@
+.Account{
+    height: 95%;
+    width: 50%;
+    position: fixed;
+    top: 1.7%;
+    left: 39%;
+    background-color: rgba(247, 236, 255, 0.4);
+    backdrop-filter: blur(10px);
+    align-items: center;
+}
+
+@media screen and (max-height: 450px){
+    .app_list a {font-size: 30px;}
+}
+
+.Account{
+    /* background-color: rgba(247, 236, 255, 0.4); */
+    display: flex;
+    padding: 20px 25px;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    margin-right: -10px;
+    border-radius: var(--border-radius);
+    font-family: var(--primary-font);
+    /* overflow text */
+    text-overflow: ellipsis;
+    
+}
