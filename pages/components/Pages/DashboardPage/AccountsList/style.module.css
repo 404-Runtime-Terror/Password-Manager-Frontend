@@ -5,28 +5,13 @@
     z-index: 1;
     top: 1.7%;
     left: 19%;
-    background-color: rgba(247, 236, 255, 0.4);
+    background-color: var(--dashboard-color);
     overflow-x: hidden;
     padding: 20px 5px;
     border-radius: var(--border-radius);
     font-family: var(--primary-font);
     font-size: 1.2rem;
     backdrop-filter: blur(10px);
-}
-.app_list a{
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #eff3efb5;
-    display: block;
-}
-
-.app_list a:hover{
-    color: #f1f1f1;
-}
-
-@media screen and (max-height: 450px){
-    .app_list a {font-size: 18px;}
 }
 
 .Accounts{
@@ -52,35 +37,53 @@
     background-color: rgba(var(--primary-color-rgb),0.6);
     cursor: pointer;
 }
+    /* On click color transition */
 .Accounts:active {
-    background-color: var(--primary-color);
-    outline: none;
-    color: rgba(255, 255, 255, 1);
-  }
+  background-color: var(--primary-color);
+  outline: none;
+  color: rgba(255, 255, 255, 1);
+}
+  /* Accounts text */
+.AccountItem{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 50% ;
+}
+  /* Accounts Icon */
 .favLogo{
     height: 25px;
     margin-right: 50px;
     width: 25px;
 }
-.arrow{
+  /* Arrow & MoreInfo css */
+.arrowInfo{
     position: fixed;
     color: rgba(255, 255, 255, 1);
     left: 87%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 0.9rem;
     opacity:0;
 }
- .Accounts:hover > .arrow{
+  /* On hover arrow & MoreInfo transition */
+ .Accounts:hover > .arrowInfo{
     opacity: 1;
  } 
-
- .AccountItem{
-    display: flex;
-    
-}
-.moreIn{
-    display: flex;
-    align-items: center; 
-    font-size: 0.9rem;
-}
+                                                            /* CSS to be reviewed */
+  /* .app_list a{
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #eff3efb5;
+      display: block;
+  } */
+  
+  /* .app_list a:hover{
+      color: #f1f1f1;
+  } */
+  /* 
+  @media screen and (max-height: 450px){
+      .app_list a {font-size: 18px;}
+  } */
+                                                              /* ****************** */
