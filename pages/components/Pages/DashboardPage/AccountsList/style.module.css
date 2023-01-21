@@ -64,17 +64,23 @@
 }
 .arrow{
     position: fixed;
-    left: 85%;
-    /* display: none; */
+    color: rgba(255, 255, 255, 1);
+    left: 87%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity:0;
 }
-.arrow:hover{
-    color: rgba(255, 255, 255, 1);
-    cursor: pointer;
+ .Accounts:hover > .arrow{
     opacity: 1;
+ } 
+
+ .AccountItem{
+    display: flex;
+    
 }
-/*    
-.Accounts:hover + .arrow {
-    display: block;
-    color: rgba(255, 255, 255, 1);
-  } */
+.moreIn{
+    display: flex;
+    align-items: center; 
+    font-size: 0.9rem;
+}
