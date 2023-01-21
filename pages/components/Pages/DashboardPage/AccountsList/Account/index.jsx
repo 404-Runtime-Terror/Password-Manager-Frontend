@@ -10,25 +10,25 @@ function Account() {
     <div className={style.Account}>
     {/* <div className="Account"> */}
 
-    //UserName
+    {/* //UserName */}
       <div className={style.field}>
         <label>UserName</label>
         <input type="text" name="username" placeholder='Username'/>
       </div>
 
-      //Email
+      {/* //Email */}
       <div className={style.field}>
         <label>Email</label>
         <input type="email" name="email" placeholder="Email"/>
       </div>
 
-      //Password
+      {/* //Password */}
       <div className={style.field}>
         <label>Password</label>
         <input type="password" name="password" placeholder="Password"/>
       </div>
       
-      //Save
+      {/* //Save */}
       <button className={style.fielduibutton}>
         <CiSaveDown2/>
         Save</button>
