@@ -1,0 +1,61 @@
+[
+  {
+    "website": "facebook.com",
+    "accounts": [
+      {
+        "username": "johndoe",
+        "password": "123456"
+      },
+      {
+        "username": "johndoe",
+        "password": "123456"
+      },
+      {
+        "username": "johndoe",
+        "password": "123456"
+      },
+      {
+        "username": "johndoe",
+        "password": "123456"
+      }
+    ]
+  },
+  {
+    "website": "twitter.com",
+    "accounts": [
+      {
+        "username": "johndoe",
+        "password": "123456"
+      },
+      {
+        "username": "johndoe",
+        "password": "123456"
+      },
+      {
+        "username": "johndoe",
+        "password": "123456"
+      }
+    ]
+  },
+  {
+    "website": "instagram.com",
+    "accounts": [
+      {
+        "username": "johndoe",
+        "password": "123456"
+      },
+      {
+        "username": "johndoe",
+        "password": "123456"
+      },
+      {
+        "username": "johndoe",
+        "password": "123456"
+      },
+      {
+        "username": "johndoe",
+        "password": "123456"
+      }
+    ]
+  }
+]

@@ -8,12 +8,18 @@ import "../styles/globals.css";
 
 // Import the components you want to render on every page of your site
 import Head from "next/head";
+import React from "react";
+import { motion } from "framer-motion";
 
 // Import the GoogleOAuthProvider component from the react-oauth package
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 // This is the default Next.js function that is used to render the app
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, router }) {
+  // This is a React hook that allows you to store data in the component's state
+  const [userData, setUserData] = React.useState(null);
+  const [userID, setUserID] = React.useState(null);
+
   return (
     <>
       {/* // This is the GoogleOAuthProvider component from the react-oauth package. It is used to authenticate users with Google OAuth. */}
@@ -53,7 +59,23 @@ export default function App({ Component, pageProps }) {
         </Head>
 
         {/* // This is the component that is rendered on every page of your site. */}
-        <Component {...pageProps} />
+        <motion.div
+          // This is the animation that is used to transition between pages
+          key={router.route}
+          initial={{ x: "100vw" }}
+          animate={{ x: 0 }}
+          exit={{ backgroundColor: "var(--primary-color)", x: "-100vw" }}
+          transition={{ type: "spring", bounce: ".1", delay: 0.3 }}
+        >
+          {/* // This is the component that is rendered on every page of your site. */}
+          <Component
+            {...pageProps}
+            userData={userData}
+            setUserData={setUserData}
+            userID={userID}
+            setUserID={setUserID}
+          />
+        </motion.div>
       </GoogleOAuthProvider>
     </>
   );

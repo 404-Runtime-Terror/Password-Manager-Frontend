@@ -18,14 +18,11 @@
 import React from "react";
 import LoginPage from "./components/Pages/LoginPage";
 
-export default function Home() {
-  // This is a React hook that allows you to store data in the component's state
-  const [user, setUser] = React.useState(null);
-
+export default function Home(props) {
   return (
     <>
       <main>
-        <LoginPage setUserData={setUser} />
+        <LoginPage userID={props.userID} setUserID={props.setUserID} />
       </main>
     </>
   );

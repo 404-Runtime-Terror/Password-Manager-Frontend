@@ -40,7 +40,7 @@ const LoginPage = (props) => {
             {isLoginPage ? (
               <Login
                 setisLoginPage={setisLoginPage}
-                setUser={props.setUserData}
+                setUserID={props.setUserID}
               />
             ) : (
               <Signup setisLoginPage={setisLoginPage} />

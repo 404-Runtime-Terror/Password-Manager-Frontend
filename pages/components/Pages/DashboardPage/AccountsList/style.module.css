@@ -1,30 +1,72 @@
-
-.app_list{
+.Accountlist{
     height: 95%;
     width: 18%;
     position: fixed;
     z-index: 1;
     top: 1.7%;
-    left: 20%;
-    background-color: rgba(247, 236, 255, 0.4);
+    left: 19%;
+    background-color: var(--dashboard-color);
     overflow-x: hidden;
-    padding-top: 20px;
+    padding: 20px 5px;
     border-radius: var(--border-radius);
     font-family: var(--primary-font);
-}
-.app_list a{
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #eff3efb5;
-    display: block;
+    font-size: 1.2rem;
+    backdrop-filter: blur(10px);
 }
 
-.app_list a:hover{
-    color: #f1f1f1;
-}
-
-@media screen and (max-height: 450px){
-    .app_list a {font-size: 18px;}
-}
+.Accounts{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 39px;
+    width: 97%;
+    margin: 10px 5px;
+    padding: 5px 10px;
+    text-transform: capitalize;
+    border-radius: 5px;
+    font-family: var(--primary-font);
+    /* overflow text */
+    text-overflow: ellipsis;
+    /* transition on click */
+    transition: all 0.2s ease-in-out;
+    color: rgba(255, 255, 255, 0.8); 
     
+}
+    /* On hover color transition */
+.Accounts:hover{
+    background-color: rgba(var(--primary-color-rgb),0.6);
+    cursor: pointer;
+}
+    /* On click color transition */
+.Accounts:active {
+  background-color: var(--primary-color);
+  outline: none;
+  color: rgba(255, 255, 255, 1);
+}
+  /* Accounts text */
+.AccountItem{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 50% ;
+}
+  /* Accounts Icon */
+.favLogo{
+    height: 25px;
+    margin-right: 50px;
+    width: 25px;
+}
+  /* Arrow & MoreInfo css */
+.arrowInfo{
+    position: fixed;
+    color: rgba(255, 255, 255, 1);
+    left: 87%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    opacity:0;
+}
+  /* On hover arrow & MoreInfo transition */
+ .Accounts:hover > .arrowInfo{
+    opacity: 1;
+ } 
