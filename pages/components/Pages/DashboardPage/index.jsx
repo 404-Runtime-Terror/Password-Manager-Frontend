@@ -22,8 +22,10 @@ const DashboardPage = (props) => {
   
   return (
     <>
-      <div className={styles.Dashboard}>{props.userData.passwordData._id}
-        </div>
+    {console.log(accounts)}
+      {/* <div className={sty
+      les.Dashboard}>{props.userData.passwordData._id}
+        </div> */}
       <Accounts_list website = {website}
         setindex = {setindex}/>
         {console.log(accounts[index])}

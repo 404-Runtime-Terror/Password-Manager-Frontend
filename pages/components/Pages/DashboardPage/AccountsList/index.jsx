@@ -10,13 +10,12 @@ import { FaUser } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 // Account list array
-const Element = ["Twitter", "Facebook", "Instagram", "Netflix", "Prime"];
+// const Element = ["google", "email"];
+
+
 const Accounts_list = (props) => {
   const [isAccountHover, setIsAccountHover] = React.useState(false);
-  const [initialIndex,setinitialIndex] = React.useState(0);
-  useEffect(()=>{
-    props.setindex(initialIndex);
-  },[initialIndex])
+ 
   return (
     <>
       {/* Account list container */}
@@ -28,7 +27,7 @@ const Accounts_list = (props) => {
               {/* AccountsList container */}
               <motion.div
                 key={key}
-                onClick = {() => setinitialIndex(key)}
+                onClick = {() => props.setindex(key)}
                 className={style.Accounts}
                 onHoverStart={() => setIsAccountHover(true)}
                 onHoverEnd={() => setIsAccountHover(false)}
