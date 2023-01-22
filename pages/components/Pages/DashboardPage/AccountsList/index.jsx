@@ -13,10 +13,10 @@ import { motion } from "framer-motion";
 const Element = ["Twitter", "Facebook", "Instagram", "Netflix", "Prime"];
 const Accounts_list = (props) => {
   const [isAccountHover, setIsAccountHover] = React.useState(false);
-  const [initialIndex,setinitialIndex] = React.useState(0);
-  useEffect(()=>{
+  const [initialIndex, setinitialIndex] = React.useState(0);
+  useEffect(() => {
     props.setindex(initialIndex);
-  },[initialIndex])
+  }, [initialIndex]);
   return (
     <>
       {/* Account list container */}
@@ -28,7 +28,7 @@ const Accounts_list = (props) => {
               {/* AccountsList container */}
               <motion.div
                 key={key}
-                onClick = {() => setinitialIndex(key)}
+                onClick={() => setinitialIndex(key)}
                 className={style.Accounts}
                 onHoverStart={() => setIsAccountHover(true)}
                 onHoverEnd={() => setIsAccountHover(false)}
@@ -59,7 +59,7 @@ const Accounts_list = (props) => {
                   {/* Display Number of users */}
                   <span className={style.noofItem}>
                     <FaUser size={".6rem"} style={{ marginRight: 3 }} />
-                    {key}
+                    {props.accounts[key].length}
                   </span>
 
                   {/* Arrow icon */}
@@ -75,6 +75,3 @@ const Accounts_list = (props) => {
 };
 
 export default Accounts_list;
-
-  
-
