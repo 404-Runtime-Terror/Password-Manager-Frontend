@@ -12,22 +12,23 @@ function Account(props) {
       ) : (
         <>
           <div className={style.Account}>
+                <div className={style.logo}>
+                  <CiSaveDown2 size={"6rem"}/>
+                </div>
           {console.log(accounts)}
-          {accounts.map((e, index) => {
+          {accounts.map((e,index) => {
             return (
               <>
-                <div className={style.logo}>
-                  
+                <div className={style.box}>
+                  <label>username</label>
+                  <input type="username" name={accounts[index].username} placeholder={accounts[index].username} />
                 </div>
                 <div className={style.box}>
-                  <label>UserName/Email</label>
-                  <input type="text" name="Username/Email" placeholder={e.username} />
+                  <label>
+                  password
+                  </label>
+                  <input type="password" name={accounts[index].password} placeholder={accounts[index].password} />
                 </div>
-                <div className={style.box}>
-                  <label>Password</label>
-                  <input type="password" name="password" placeholder={e.password} />
-                </div>
-                <button className={style.save}><CiSaveDown2 />Save</button>
               </>
             );
           })}

@@ -2,7 +2,7 @@
     cursor:pointer;
 }
 
-.logo{}
+/* .logo{} */
 
 .Account{
      display: flex; 
@@ -22,7 +22,7 @@
 
 .box{
     display: flex;  
-    background-color: rgba(247, 236, 255, 0.4); 
+    background-color: rgba(var(--primary-color-rgb),0.4); 
     top: 30%;
     gap:-1px;
     height: 70px;
