@@ -1,72 +1,80 @@
-.Accountlist{
-    height: 95%;
-    width: 18%;
-    position: fixed;
-    z-index: 1;
-    top: 1.7%;
-    left: 19%;
-    background-color: var(--dashboard-color);
-    overflow-x: hidden;
-    padding: 20px 5px;
-    border-radius: var(--border-radius);
-    font-family: var(--primary-font);
-    font-size: 1.2rem;
-    backdrop-filter: blur(10px);
+.Accountlist {
+  height: 95%;
+  width: 18%;
+  position: fixed;
+  z-index: 1;
+  top: 1.7%;
+  left: 19%;
+  background-color: var(--dashboard-color);
+  overflow-x: hidden;
+  padding: 20px 5px;
+  border-radius: var(--border-radius);
+  font-family: var(--primary-font);
+  font-size: 1.2rem;
+  backdrop-filter: blur(10px);
 }
 
-.Accounts{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 39px;
-    width: 97%;
-    margin: 10px 5px;
-    padding: 5px 10px;
-    text-transform: capitalize;
-    border-radius: 5px;
-    font-family: var(--primary-font);
-    /* overflow text */
-    text-overflow: ellipsis;
-    /* transition on click */
-    transition: all 0.2s ease-in-out;
-    color: rgba(255, 255, 255, 0.8); 
-    
+.Accounts {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 39px;
+  width: 97%;
+  margin: 10px 5px;
+  padding: 5px 10px;
+  text-transform: capitalize;
+  border-radius: 5px;
+  font-family: var(--primary-font);
+  /* overflow text */
+  text-overflow: ellipsis;
+  /* transition on click */
+  transition: all 0.2s ease-in-out;
+  color: rgba(255, 255, 255, 0.6);
 }
-    /* On hover color transition */
-.Accounts:hover{
-    background-color: rgba(var(--primary-color-rgb),0.6);
-    cursor: pointer;
+/* On hover color transition */
+.Accounts:hover {
+  background-color: rgba(var(--primary-color-rgb), 0.8);
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
 }
-    /* On click color transition */
+/* On click color transition */
 .Accounts:active {
   background-color: var(--primary-color);
   outline: none;
   color: rgba(255, 255, 255, 1);
 }
-  /* Accounts text */
-.AccountItem{
+/* Accounts text */
+.AccountItem {
   text-overflow: ellipsis;
   overflow: hidden;
-  width: 50% ;
+  width: 50%;
 }
-  /* Accounts Icon */
-.favLogo{
-    height: 25px;
-    margin-right: 50px;
-    width: 25px;
+/* Accounts Icon */
+.favLogo {
+  height: 25px;
+  margin-right: 10px;
+  width: 25px;
 }
-  /* Arrow & MoreInfo css */
-.arrowInfo{
-    position: fixed;
-    color: rgba(255, 255, 255, 1);
-    left: 87%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    opacity:0;
+/* Arrow & MoreInfo css */
+.arrowInfo {
+  position: fixed;
+  color: rgb(255, 255, 255);
+  left: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  opacity: 0;
 }
-  /* On hover arrow & MoreInfo transition */
- .Accounts:hover > .arrowInfo{
-    opacity: 1;
- } 
+/* On hover arrow & MoreInfo transition */
+.Accounts:hover > .arrowInfo {
+  opacity: 1;
+}
+
+.noofItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 1);
+}

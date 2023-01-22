@@ -1,41 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./style.module.css";
-import {CiSaveDown2} from "react-icons/ci"
-// import style from "../../../DashboardPage/AccountsList/Account/style.module.css"
-// import "./style.module.css";
+import { CiSaveDown2 } from "react-icons/ci";
 
-function Account() {
+function Account(props) {
+  const { accounts } = props;
+
   return (
     <>
-    <div className={style.Account}>
-    {/* <div className="Account"> */}
-
-    {/* //UserName */}
-      <div className={style.field}>
-        <label>UserName</label>
-        <input type="text" name="username" placeholder='Username'/>
-      </div>
-
-      {/* //Email */}
-      <div className={style.field}>
-        <label>Email</label>
-        <input type="email" name="email" placeholder="Email"/>
-      </div>
-
-      {/* //Password */}
-      <div className={style.field}>
-        <label>Password</label>
-        <input type="password" name="password" placeholder="Password"/>
-      </div>
-      
-      {/* //Save */}
-      <button className={style.fielduibutton}>
-        <CiSaveDown2/>
-        Save</button>
-      </div>
-
+      {accounts === undefined ? (
+        <div>loading</div>
+      ) : (
+        <>
+          <div className={style.Account}>
+          {console.log(accounts)}
+          {accounts.map((e, index) => {
+            return (
+              <>
+                <div className={style.logo}>
+                  
+                </div>
+                <div className={style.box}>
+                  <label>UserName/Email</label>
+                  <input type="text" name="Username/Email" placeholder={e.username} />
+                </div>
+                <div className={style.box}>
+                  <label>Password</label>
+                  <input type="password" name="password" placeholder={e.password} />
+                </div>
+                <button className={style.save}><CiSaveDown2 />Save</button>
+              </>
+            );
+          })}
+          </div>
+        </>
+      )}
     </>
-    )
+  );
 }
 
 export default Account;

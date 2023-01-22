@@ -1,28 +1,61 @@
+.button{
+    cursor:pointer;
+}
+
+.logo{}
+
 .Account{
+     display: flex; 
     height: 95%;
     width: 50%;
     position: fixed;
+    place-items: center;
     top: 1.7%;
     left: 39%;
+    border-radius: 5px;
     background-color: rgba(247, 236, 255, 0.4);
     backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-@media screen and (max-height: 450px){
-    .app_list a {font-size: 30px;}
+.box{
+    display: flex;  
+    background-color: rgba(247, 236, 255, 0.4); 
+    top: 30%;
+    gap:-1px;
+    height: 70px;
+    width: 250px;
+    padding: 20px 20px;
+    margin-bottom: 2px;
+    margin-right: 100px;
+    border-radius: 5px;
+    font-family: var(--primary-font);
+    overflow: hidden;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
 }
 
-.Account{
-    /* background-color: rgba(247, 236, 255, 0.4); */
-    display: flex;
-    padding: 20px 25px;
-    justify-content: flex-start;
-    margin-bottom: 10px;
-    margin-right: -10px;
-    border-radius: var(--border-radius);
-    font-family: var(--primary-font);
-    /* overflow text */
-    text-overflow: ellipsis;
-    
+.box>input{
+    display:flex;
+    flex-direction: column;
+    border:10px;
+    height: 20px;
+    border-radius: 2px; 
+    justify-content: center;
+    align-items: center;
+}
+
+
+.save {
+    width:15%;
+    height:45px;
+    border-radius: 2px;
+    border:0px;
+    background-color: rgba(247, 236, 255, 0.4);
+    color:#f9f9f9;
+    font-weight:600;
+
 }

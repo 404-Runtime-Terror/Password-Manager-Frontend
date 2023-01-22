@@ -51,7 +51,8 @@ const Dashboard = (props) => {
                   userData={props.userData}
                   setUserData={props.setUserData}
                 />
-                <DashboardPage userID={props.userID} />
+                <DashboardPage userID={props.userID} 
+                userData = {props.userData}/>
               </>
             ) : (
               <>
