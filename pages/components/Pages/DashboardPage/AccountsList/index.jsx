@@ -17,7 +17,7 @@ const Accounts_list = (props) => {
 
   return (
     <>
-      {props.website.length === 0 ? (
+      {props.website === undefined ? (
         <div>Loading</div>
       ) : (
         <>
