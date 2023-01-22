@@ -11,19 +11,20 @@ import { motion } from "framer-motion";
 
 // Account list array
 const Element = ["Twitter", "Facebook", "Instagram", "Netflix", "Prime"];
-const Accounts_list = () => {
+const Accounts_list = (props) => {
   const [isAccountHover, setIsAccountHover] = React.useState(false);
   return (
     <>
       {/* Account list container */}
       <div className={style.Accountlist}>
         {/* Map Function to create accounts */}
-        {Element.map((e, key) => {
+        {props.website.map((e, key) => {
           return (
             <>
               {/* AccountsList container */}
               <motion.div
                 key={key}
+                onClick = {() => {key === 0  ? props.setindex(0) : props.setindex(key)}}
                 className={style.Accounts}
                 onHoverStart={() => setIsAccountHover(true)}
                 onHoverEnd={() => setIsAccountHover(false)}
