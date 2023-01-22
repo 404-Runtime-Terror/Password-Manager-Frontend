@@ -14,6 +14,9 @@ import { FaUserAlt } from "react-icons/fa";
 import { IoIosSettings } from "react-icons/io";
 import { BsFillShieldLockFill } from "react-icons/bs";
 
+// import framer motion
+import { motion } from "framer-motion";
+
 const Navbar = (props) => {
   return (
     <>
@@ -29,46 +32,103 @@ const Navbar = (props) => {
             </div>
 
             <ul className={style.Navbar_Menu}>
-              <li className={style.active}>
+              <motion.li
+                className={style.active}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.5 + 0.1 * 1,
+                }}
+              >
                 <IoMdLock size="1.5rem" className={style.Navbar_Menu_icon} />{" "}
                 <span>all passwords</span>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.5 + 0.1 * 2,
+                }}
+              >
                 <RxCounterClockwiseClock
                   size="1.5rem"
                   className={style.Navbar_Menu_icon}
                 />{" "}
                 <span>recents</span>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.5 + 0.1 * 3,
+                }}
+              >
                 <BsStarFill size="1.3rem" className={style.Navbar_Menu_icon} />{" "}
                 <span>favorites</span>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.5 + 0.1 * 4,
+                }}
+              >
                 <FaLayerGroup />
                 <span>groups</span>
-              </li>
+              </motion.li>
 
+              <motion.li
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.5 + 0.1 * 5,
+                }}
+              >
+                <FaLayerGroup className={style.Navbar_Menu_icon} />
+                <span>groups</span>
+              </motion.li>
               <li>
                 <FaLayerGroup className={style.Navbar_Menu_icon} />
                 <span>groups</span>
               </li>
-              <li>
-                <FaLayerGroup className={style.Navbar_Menu_icon} />
-                <span>groups</span>
-              </li>
 
-              <li>
+              <motion.li
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.5 + 0.1 * 6,
+                }}
+              >
                 <FaArchive className={style.Navbar_Menu_icon} />
                 <span>archive</span>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.5 + 0.1 * 7,
+                }}
+              >
                 <AiFillDelete
                   size="1.5rem"
                   className={style.Navbar_Menu_icon}
                 />
                 <span>trash</span>
-              </li>
+              </motion.li>
             </ul>
 
             <div className={style.user}>
