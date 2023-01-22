@@ -25,14 +25,22 @@ function Account(props) {
           <input type="text" name="username" placeholder='Username' />
         </div>
 
-        <div className={style.field}>
-          <label>{fetchaccount[index].password}</label>
-          <input type="password" name="password" placeholder="Password" />
-        </div>
+      //Email
+      <div className={style.field}>
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Email"/>
+      </div>
 
-        <button className={style.fielduibutton}>
-          <CiSaveDown2 />
-          Save</button>
+      //Password
+      <div className={style.field}>
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Password"/>
+      </div>
+      
+      //Save
+      <button className={style.fielduibutton}>
+        <CiSaveDown2/>
+        Save</button>
       </div>
       )
     }

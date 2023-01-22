@@ -4,43 +4,66 @@ import Link from "next/link";
 // import icons
 import { BsStarFill } from "react-icons/bs";
 import { MdArrowForwardIos } from "react-icons/md";
-import react from "react";
+import { FaUser } from "react-icons/fa";
 
+// import framer motion
+import { motion } from "framer-motion";
 
-const Accounts_list = (props) => {
-  const { website } = props;
+// Account list array
+const Element = ["Twitter", "Facebook", "Instagram", "Netflix", "Prime"];
+const Accounts_list = () => {
+  const [isAccountHover, setIsAccountHover] = React.useState(false);
   return (
     <>
-      <div className={style.app_list}>
-        {website.map((e, key) => (
-          // <Link href='/page/components/Pages/DashboardPage/AccountsList/Account' as={`/page/components/Pages/DashboardPage/AccountsList/Account/${key}`} key={key}>
-            <div className={style.Accounts}
-            onClick = {()=>{console.log(key)
-            props.setindex(key)}}
-                        >
-              {/* {props.setindex(key)} */}
-              <div className={style.favLogo}>
-                <BsStarFill />
-              </div>
-              <span
-                className={style.AccountItem}
-                style={{
-                  textOverflow: "ellipsis",
-                  overflow: "hidden",
-                  width: "50%",
+      {/* Account list container */}
+      <div className={style.Accountlist}>
+        {/* Map Function to create accounts */}
+        {Element.map((e, key) => {
+          return (
+            <>
+              {/* AccountsList container */}
+              <motion.div
+                key={key}
+                className={style.Accounts}
+                onHoverStart={() => setIsAccountHover(true)}
+                onHoverEnd={() => setIsAccountHover(false)}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.6 + 0.2 * key,
+                  bounce: 0.2,
+                  stiffness: 100,
                 }}
               >
-                {e}
-              </span>
-              <div className={style.arrow}>
-                <div className={style.moreIn}>
-                  <span className={style.AccountItem}>{key}</span>
-                  <MdArrowForwardIos size={"1.3rem"} />
+                {/* Accounts Logo container */}
+                <div className={style.favLogo}>
+                  <BsStarFill />
                 </div>
-              </div>
-            </div>
-          // </Link>
-        ))}
+
+                {/* Account Name */}
+                <span className={style.AccountItem}>{e}</span>
+
+                {/* container to show MoreInfo & Arrow */}
+                <motion.div
+                  className={style.arrowInfo}
+                  animate={{ x: isAccountHover ? 0 : -10 }}
+                  transition={{ duration: 0.08 }}
+                >
+                  {/* Display Number of users */}
+                  <span className={style.noofItem}>
+                    <FaUser size={".6rem"} style={{ marginRight: 3 }} />
+                    {key}
+                  </span>
+
+                  {/* Arrow icon */}
+                  <MdArrowForwardIos size={"1.3rem"} />
+                </motion.div>
+              </motion.div>
+            </>
+          );
+        })}
       </div>
     </>
   );

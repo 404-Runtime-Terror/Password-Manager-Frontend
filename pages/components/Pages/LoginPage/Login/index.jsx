@@ -21,7 +21,7 @@ import ForgotPassword from "./ForgotPassword/forgotpassword";
 // import toast
 import { toast } from "react-toastify";
 
-// import loder
+// import loader
 import Loader from "../../../Loader";
 import react from "react";
 
