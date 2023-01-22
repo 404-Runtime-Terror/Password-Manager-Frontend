@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import style from "./style.module.css";
-import Link from "next/link";
+
 // import icons
 import { BsStarFill } from "react-icons/bs";
 import { MdArrowForwardIos } from "react-icons/md";
@@ -12,10 +12,9 @@ import { motion } from "framer-motion";
 // Account list array
 // const Element = ["google", "email"];
 
-
 const Accounts_list = (props) => {
   const [isAccountHover, setIsAccountHover] = React.useState(false);
- 
+
   return (
     <>
       {/* Account list container */}
@@ -27,7 +26,7 @@ const Accounts_list = (props) => {
               {/* AccountsList container */}
               <motion.div
                 key={key}
-                onClick = {() => props.setindex(key)}
+                onClick={() => props.setindex(key)}
                 className={style.Accounts}
                 onHoverStart={() => setIsAccountHover(true)}
                 onHoverEnd={() => setIsAccountHover(false)}
