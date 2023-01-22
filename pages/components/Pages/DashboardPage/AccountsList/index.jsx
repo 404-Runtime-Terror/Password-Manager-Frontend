@@ -58,7 +58,7 @@ const Accounts_list = (props) => {
                   {/* Display Number of users */}
                   <span className={style.noofItem}>
                     <FaUser size={".6rem"} style={{ marginRight: 3 }} />
-                    {key}
+                    {props.accounts[key].length}
                   </span>
 
                   {/* Arrow icon */}
@@ -74,6 +74,3 @@ const Accounts_list = (props) => {
 };
 
 export default Accounts_list;
-
-  
-
