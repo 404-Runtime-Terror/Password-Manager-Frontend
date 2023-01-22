@@ -26,3 +26,15 @@
     text-overflow: ellipsis;
     
 }
+.field{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.usernameDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
