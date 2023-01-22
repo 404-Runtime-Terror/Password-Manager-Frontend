@@ -26,8 +26,8 @@ const DashboardPage = (props) => {
         </div>
       <Accounts_list website = {website}
         setindex = {setindex}/>
-      <Account accounts = {accounts}
-      index = {index}/>
+        {console.log(accounts[index])}
+      <Account accounts = {accounts[index]}/>
       
     </>
   );

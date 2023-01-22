@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./style.module.css";
 import Link from "next/link";
 // import icons
@@ -13,6 +13,10 @@ import { motion } from "framer-motion";
 const Element = ["Twitter", "Facebook", "Instagram", "Netflix", "Prime"];
 const Accounts_list = (props) => {
   const [isAccountHover, setIsAccountHover] = React.useState(false);
+  const [initialIndex,setinitialIndex] = React.useState(0);
+  useEffect(()=>{
+    props.setindex(initialIndex);
+  },[initialIndex])
   return (
     <>
       {/* Account list container */}
@@ -24,7 +28,7 @@ const Accounts_list = (props) => {
               {/* AccountsList container */}
               <motion.div
                 key={key}
-                onClick = {() => {key === 0  ? props.setindex(0) : props.setindex(key)}}
+                onClick = {() => setinitialIndex(key)}
                 className={style.Accounts}
                 onHoverStart={() => setIsAccountHover(true)}
                 onHoverEnd={() => setIsAccountHover(false)}
