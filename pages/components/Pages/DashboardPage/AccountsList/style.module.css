@@ -78,3 +78,43 @@
   align-items: center;
   color: rgba(255, 255, 255, 1);
 }
+
+/* Media Query to make respoonsive  */
+@media screen and (max-width: 1380px) {
+  .Accountlist {
+    width: 18%;
+    height: 95%;
+    left: 35%;
+    position: fixed;
+  }
+  /* .Accounts {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .AccountItem {
+    width: 100%;
+  }
+  .arrowInfo {
+    left: 90%;
+  } */
+}
+/* Media Query to make respoonsive  */
+@media screen and (max-width: 768px) {
+  .Accountlist {
+    width: 8%,fixed;
+    height: 90%;
+    left: 5%;
+    position: fixed;
+  }
+  /* .Accounts {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .AccountItem {
+    width: 100%;
+  }
+  .arrowInfo {
+    left: 90%;
+  } */
+}
+  
