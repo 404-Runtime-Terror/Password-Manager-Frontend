@@ -26,9 +26,10 @@ const DashboardPage = (props) => {
         website={website}
         setindex={setindex}
         accounts={accounts}
-      />
-      {/* {console.log(accounts[index])} */}
-      <Account accounts={accounts[index]} />
+        />
+        
+      {console.log(website[index])}
+      <Account accounts={accounts[index]} webIcon = {website[index]}/>
     </>
   );
 };

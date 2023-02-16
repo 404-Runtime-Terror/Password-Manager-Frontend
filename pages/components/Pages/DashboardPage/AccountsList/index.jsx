@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import style from "./style.module.css";
-import Link from "next/link";
-// import icons
+
 import { BsStarFill } from "react-icons/bs";
 import { MdArrowForwardIos } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
@@ -9,18 +8,13 @@ import { FaUser } from "react-icons/fa";
 // import framer motion
 import { motion } from "framer-motion";
 
-// Account list array
-// const Element = ["google", "email"];
-
-
 const Accounts_list = (props) => {
   const [isAccountHover, setIsAccountHover] = React.useState(false);
- 
+  
   return (
     <>
-      {/* Account list container */}
+     
       <div className={style.Accountlist}>
-        {/* Map Function to create accounts */}
         {props.website.map((e, key) => {
           return (
             <>

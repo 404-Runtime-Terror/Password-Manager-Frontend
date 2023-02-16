@@ -1,11 +1,17 @@
-.button{
-    cursor:pointer;
+.button {
+    cursor: pointer;
 }
 
-/* .logo{} */
+.logo{
+    /* scale: 2; */
+    display: flex;
+    align-self: center;
+    width: auto;
+    height: auto;
+}
 
-.Account{
-     display: flex; 
+.Account {
+    display: flex;
     height: 95%;
     width: 50%;
     position: fixed;
@@ -18,15 +24,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
-.box{
-    display: flex;  
-    background-color: rgba(var(--primary-color-rgb),0.4); 
+.box {
+    display: flex;
+    background-color: rgba(var(--primary-color-rgb), 0.4);
     top: 30%;
-    gap:-1px;
-    height: 70px;
-    width: 250px;
+    gap: -1px;
+    height: 100px;
+    width: 270px;
     padding: 20px 20px;
     margin-bottom: 2px;
     margin-right: 100px;
@@ -34,28 +41,27 @@
     font-family: var(--primary-font);
     overflow: hidden;
     flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
 }
-
-.box>input{
-    display:flex;
-    flex-direction: column;
-    border:10px;
-    height: 20px;
-    border-radius: 2px; 
-    justify-content: center;
-    align-items: center;
-}
-
 
 .save {
-    width:15%;
-    height:45px;
+    width: 15%;
+    height: 45px;
     border-radius: 2px;
-    border:0px;
+    border: 0px;
     background-color: rgba(247, 236, 255, 0.4);
-    color:#f9f9f9;
-    font-weight:600;
+    color: #f9f9f9;
+    font-weight: 600;
 
+}
+
+.input_box {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid white;
+    color :white;
+    padding-bottom: 2px;
 }
